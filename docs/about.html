@@ -16,7 +16,7 @@
 <script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -32,6 +32,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -68,6 +70,7 @@ if (window.hljs) {
 
 
 
+<link rel="stylesheet" href="simplex.css" type="text/css" />
 
 
 
@@ -263,7 +266,13 @@ $(document).ready(function () {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/juaruk/Orthoptera">
+    <span class="fab fa-github"></span>
+     
+    Source code
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -349,13 +358,15 @@ results.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong86f6ca8">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree9f46048f129c8350c17823ed597e3beb31092805targetblank9f46048a">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 86f6ca8
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/juaruk/Orthoptera/tree/9f46048f129c8350c17823ed597e3beb31092805" target="_blank">9f46048</a>
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong86f6ca8"
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree9f46048f129c8350c17823ed597e3beb31092805targetblank9f46048a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -364,7 +375,8 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 86f6ca8.
+The results in this page were generated with repository version
+<a href="https://github.com/juaruk/Orthoptera/tree/9f46048f129c8350c17823ed597e3beb31092805" target="_blank">9f46048</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -378,7 +390,18 @@ depends on. Below is the status of the Git repository when the results
 were generated:
 </p>
 <pre><code>
-working directory clean
+Ignored files:
+    Ignored:    .RData
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  analysis/minty.css
+    Untracked:  analysis/simplex.css
+
+Unstaged changes:
+    Modified:   analysis/_site.yml
+
 </code></pre>
 <p>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not
@@ -424,10 +447,27 @@ Message
 <tbody>
 <tr>
 <td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/juaruk/Orthoptera/81554f4ef44f3faa6f8a497e8deca1f7f3fe36db/docs/about.html" target="_blank">81554f4</a>
+</td>
+<td>
+juaruk
+</td>
+<td>
+2024-06-06
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
 Rmd
 </td>
 <td>
-86f6ca8
+<a href="https://github.com/juaruk/Orthoptera/blob/86f6ca861c99875cba0bd330c9a50789ef886f47/analysis/about.Rmd" target="_blank">86f6ca8</a>
 </td>
 <td>
 juaruk
