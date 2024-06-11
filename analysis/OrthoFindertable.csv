@@ -1,0 +1,8 @@
+Species, Common_Name, Order, Accession_Number, Genome_Size, NCBI_Annotation
+Apis mellifera, Honey bee, Hymenoptera, GCF_003254395.2, 225.2 Mb, https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_003254395.2/
+Lutzomyia longipalpis, sandfly/mothfly, Diptera,GCF_024334085.1, 147.8 Mb, https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_024334085.1/
+Phlebotomus papatasi, sandfly/mothfly, Diptera,GCF_024763615.1, 351.6 Mb, https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_024763615.1/
+Anopheles gambiae, African malaria mosquito, Diptera,GCF_943734735.2, 264.5 Mb, https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943734735.2/
+Calliphora vicina, Urban bluebottle blowfly, Diptera,GCF_958450345.1, 706.5 Mb, https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_958450345.1/
+Ischnura elegans, Blue tailed damselfly, Odonata,GCF_921293095.1, 1.7 Gb, https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_921293095.1/
+Coccinella septempunctata, Seven-spotted ladybird, Coleoptera,GCF_907165205.1, 398.8 Mb, https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_907165205.1/
