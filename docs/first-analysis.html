@@ -37,6 +37,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
 
@@ -525,15 +527,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree57091d0bbc323fdac1a6d7a9986183cdf4492db6targetblank57091d0a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree107de1f6de5498f0febac7748d02940751f17dadtargetblank107de1fa">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/juaruk/Orthoptera/tree/57091d0bbc323fdac1a6d7a9986183cdf4492db6" target="_blank">57091d0</a>
+<a href="https://github.com/juaruk/Orthoptera/tree/107de1f6de5498f0febac7748d02940751f17dad" target="_blank">107de1f</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree57091d0bbc323fdac1a6d7a9986183cdf4492db6targetblank57091d0a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree107de1f6de5498f0febac7748d02940751f17dadtargetblank107de1fa"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -543,7 +545,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/juaruk/Orthoptera/tree/57091d0bbc323fdac1a6d7a9986183cdf4492db6" target="_blank">57091d0</a>.
+<a href="https://github.com/juaruk/Orthoptera/tree/107de1f6de5498f0febac7748d02940751f17dad" target="_blank">107de1f</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -563,8 +565,10 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Untracked files:
-    Untracked:  analysis/OrthoFindertable.csv
     Untracked:  publish_and_push.R
+
+Unstaged changes:
+    Modified:   analysis/OrthoFindertable.csv
 
 </code></pre>
 <p>
@@ -610,6 +614,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/juaruk/Orthoptera/blob/107de1f6de5498f0febac7748d02940751f17dad/analysis/first-analysis.Rmd" target="_blank">107de1f</a>
+</td>
+<td>
+juaruk
+</td>
+<td>
+2024-06-11
+</td>
+<td>
+wflow_publish("analysis/first-analysis.Rmd")
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/juaruk/Orthoptera/10885ac95dd6fed82e47d0fe3d42a64319e5f085/docs/first-analysis.html" target="_blank">10885ac</a>
+</td>
+<td>
+juaruk
+</td>
+<td>
+2024-06-11
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -860,105 +898,634 @@ wflow_publish("analysis/first-analysis.Rmd")
 <h2>Analysis</h2>
 <p>Here is my analysis.</p>
 <pre class="r"><code>library(knitr)
+library(kableExtra)
 # Read data from CSV file
 
 file &lt;- &quot;analysis/OrthoFindertable.csv&quot;
 if(file.exists(file)) {
   data &lt;- read.csv(file)
-  knitr::kable(data, caption = &quot;CSV Table&quot;)
+  data[, 2] &lt;- paste0(&quot;*&quot;, data[, 2], &quot;*&quot;)
+  kable(data, caption = &quot;CSV Table&quot;, escape = FALSE, format = &quot;html&quot;) %&gt;%
+  kable_styling(full_width = FALSE) %&gt;%
+  row_spec(0, bold = TRUE) %&gt;%  
+  row_spec(1:nrow(data), extra_css = &quot;height: 50px;&quot;)
 } else {
   print(&quot;File not found.&quot;)
 }</code></pre>
-<table>
-<caption>CSV Table</caption>
-<colgroup>
-<col width="17%" />
-<col width="16%" />
-<col width="7%" />
-<col width="11%" />
-<col width="7%" />
-<col width="39%" />
-</colgroup>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+CSV Table
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Species</th>
-<th align="left">Common_Name</th>
-<th align="left">Order</th>
-<th align="left">Accession_Number</th>
-<th align="left">Genome_Size</th>
-<th align="left">NCBI_Annotation</th>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+Species
+</th>
+<th style="text-align:left;font-weight: bold;">
+Common_Name
+</th>
+<th style="text-align:left;font-weight: bold;">
+Order
+</th>
+<th style="text-align:left;font-weight: bold;">
+Accession_Number
+</th>
+<th style="text-align:left;font-weight: bold;">
+Genome_Size
+</th>
+<th style="text-align:left;font-weight: bold;">
+NCBI_Annotation
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Apis mellifera</td>
-<td align="left">Honey bee</td>
-<td align="left">Hymenoptera</td>
-<td align="left">GCF_003254395.2</td>
-<td align="left">225.2 Mb</td>
-<td align="left"><a
-href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_003254395.2/"
-class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_003254395.2/</a></td>
+<tr>
+<td style="text-align:left;height: 50px;">
+Apis mellifera
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Honey bee</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Hymenoptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_003254395.2
+</td>
+<td style="text-align:left;height: 50px;">
+225.2Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_003254395.2/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_003254395.2/</a>
+</td>
 </tr>
-<tr class="even">
-<td align="left">Lutzomyia longipalpis</td>
-<td align="left">sandfly/mothfly</td>
-<td align="left">Diptera</td>
-<td align="left">GCF_024334085.1</td>
-<td align="left">147.8 Mb</td>
-<td align="left"><a
-href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_024334085.1/"
-class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_024334085.1/</a></td>
+<tr>
+<td style="text-align:left;height: 50px;">
+Lutzomyia longipalpis
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Sand fly</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Diptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_024334085.1
+</td>
+<td style="text-align:left;height: 50px;">
+147.8Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_024334085.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_024334085.1/</a>
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Phlebotomus papatasi</td>
-<td align="left">sandfly/mothfly</td>
-<td align="left">Diptera</td>
-<td align="left">GCF_024763615.1</td>
-<td align="left">351.6 Mb</td>
-<td align="left"><a
-href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_024763615.1/"
-class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_024763615.1/</a></td>
+<tr>
+<td style="text-align:left;height: 50px;">
+Phlebotomus papatasi
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Sand fly</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Diptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_024763615.1
+</td>
+<td style="text-align:left;height: 50px;">
+351.6Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_024763615.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_024763615.1/</a>
+</td>
 </tr>
-<tr class="even">
-<td align="left">Anopheles gambiae</td>
-<td align="left">African malaria mosquito</td>
-<td align="left">Diptera</td>
-<td align="left">GCF_943734735.2</td>
-<td align="left">264.5 Mb</td>
-<td align="left"><a
-href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943734735.2/"
-class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943734735.2/</a></td>
+<tr>
+<td style="text-align:left;height: 50px;">
+Anopheles gambiae
+</td>
+<td style="text-align:left;height: 50px;">
+<em>African malaria mosquito</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Diptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_943734735.2
+</td>
+<td style="text-align:left;height: 50px;">
+264.5Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943734735.2/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943734735.2/</a>
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Calliphora vicina</td>
-<td align="left">Urban bluebottle blowfly</td>
-<td align="left">Diptera</td>
-<td align="left">GCF_958450345.1</td>
-<td align="left">706.5 Mb</td>
-<td align="left"><a
-href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_958450345.1/"
-class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_958450345.1/</a></td>
+<tr>
+<td style="text-align:left;height: 50px;">
+Calliphora vicina
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Urban bluebottle blowfly</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Diptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_958450345.1
+</td>
+<td style="text-align:left;height: 50px;">
+706.5Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_958450345.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_958450345.1/</a>
+</td>
 </tr>
-<tr class="even">
-<td align="left">Ischnura elegans</td>
-<td align="left">Blue tailed damselfly</td>
-<td align="left">Odonata</td>
-<td align="left">GCF_921293095.1</td>
-<td align="left">1.7 Gb</td>
-<td align="left"><a
-href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_921293095.1/"
-class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_921293095.1/</a></td>
+<tr>
+<td style="text-align:left;height: 50px;">
+Ischnura elegans
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Bluetailed damselfly</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Odonata
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_921293095.1
+</td>
+<td style="text-align:left;height: 50px;">
+1.7Gb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_921293095.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_921293095.1/</a>
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Coccinella septempunctata</td>
-<td align="left">Seven-spotted ladybird</td>
-<td align="left">Coleoptera</td>
-<td align="left">GCF_907165205.1</td>
-<td align="left">398.8 Mb</td>
-<td align="left"><a
-href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_907165205.1/"
-class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_907165205.1/</a></td>
+<tr>
+<td style="text-align:left;height: 50px;">
+Coccinella septempunctata
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Seven-spotted ladybird</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Coleoptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_907165205.1
+</td>
+<td style="text-align:left;height: 50px;">
+398.8Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_907165205.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_907165205.1/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;height: 50px;">
+Monomorium pharaonis
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Pharaoh ant</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Hymenoptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_013373865.1
+</td>
+<td style="text-align:left;height: 50px;">
+325.5 Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_013373865.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_013373865.1/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;height: 50px;">
+Ooceraea biroi
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Clonal raider ant</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Hymenoptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_003672135.1
+</td>
+<td style="text-align:left;height: 50px;">
+223.9 Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_003672135.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_003672135.1/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;height: 50px;">
+Athalia rosae
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Coleseed sawfly</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Hymenoptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_917208135.1
+</td>
+<td style="text-align:left;height: 50px;">
+172 Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_917208135.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_917208135.1/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;height: 50px;">
+Vespa velutina
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Asian hornet</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Hymenoptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_912470025.1
+</td>
+<td style="text-align:left;height: 50px;">
+194 Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_912470025.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_912470025.1/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;height: 50px;">
+Vespula vulgaris
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Common wasp</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Hymenoptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_905475345.1
+</td>
+<td style="text-align:left;height: 50px;">
+188.2 Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_905475345.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_905475345.1/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;height: 50px;">
+Bombus pascuorum
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Carder bee</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Hymenoptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_905332965.1
+</td>
+<td style="text-align:left;height: 50px;">
+307.5 Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_905332965.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_905332965.1/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;height: 50px;">
+Osmia bicornis bicornis
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Red mason bee</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Hymenoptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_907164935.1
+</td>
+<td style="text-align:left;height: 50px;">
+223 Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_907164935.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_907164935.1/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;height: 50px;">
+Vespa crabro
+</td>
+<td style="text-align:left;height: 50px;">
+<em>European hornet</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Hymenoptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_910589235.1
+</td>
+<td style="text-align:left;height: 50px;">
+229.3 Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_910589235.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_910589235.1/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;height: 50px;">
+Bombus affinis
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Rusty patched bumblebee</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Hymenoptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_024516045.1
+</td>
+<td style="text-align:left;height: 50px;">
+365.1 Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_024516045.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_024516045.1/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;height: 50px;">
+Bombus terrestris
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Buff-tailed bumblebee</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Hymenoptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_910591885.1
+</td>
+<td style="text-align:left;height: 50px;">
+393 Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_910591885.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_910591885.1/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;height: 50px;">
+Anopheles darlingi
+</td>
+<td style="text-align:left;height: 50px;">
+<em>American malaria mosquito</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Diptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_943734745.1
+</td>
+<td style="text-align:left;height: 50px;">
+181.6 Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943734745.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943734745.1/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;height: 50px;">
+Anopheles funestus
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Funestus malaria mosquito</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Diptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_943734845.2
+</td>
+<td style="text-align:left;height: 50px;">
+250.7 Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943734845.2/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943734845.2/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;height: 50px;">
+Anopheles nili
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Nili malaria mosquito</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Diptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_943737925.1
+</td>
+<td style="text-align:left;height: 50px;">
+195.2 Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943737925.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943737925.1/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;height: 50px;">
+Sabethes cyaneus
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Iridescent paddle mosquito</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Diptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_943734655.1
+</td>
+<td style="text-align:left;height: 50px;">
+676 Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943734655.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943734655.1/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;height: 50px;">
+Eupeodes corollae
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Migrant hoverfly</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Diptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_945859685.1
+</td>
+<td style="text-align:left;height: 50px;">
+648.2 Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_945859685.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_945859685.1/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;height: 50px;">
+Anopheles marshallii
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Marshall’s mosquito</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Diptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_943734725.1
+</td>
+<td style="text-align:left;height: 50px;">
+225.7 Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943734725.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943734725.1/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;height: 50px;">
+Anopheles coustani
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Coustani malaria mosquito</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Diptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_943734705.1
+</td>
+<td style="text-align:left;height: 50px;">
+270 Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943734705.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943734705.1/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;height: 50px;">
+Anopheles ziemanni
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Ziemann’s mosquito</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Diptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_943734765.1
+</td>
+<td style="text-align:left;height: 50px;">
+270 Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943734765.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943734765.1/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;height: 50px;">
+Anopheles maculipalpis
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Yellow fever mosquito</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Diptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_943734695.1
+</td>
+<td style="text-align:left;height: 50px;">
+224.1 Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943734695.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943734695.1/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;height: 50px;">
+Anopheles cruzii
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Cruz’s mosquito</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Diptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_943734635.1
+</td>
+<td style="text-align:left;height: 50px;">
+184.1 Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943734635.1/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943734635.1/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;height: 50px;">
+Anopheles bellator
+</td>
+<td style="text-align:left;height: 50px;">
+<em>Bellator mosquito</em>
+</td>
+<td style="text-align:left;height: 50px;">
+Diptera
+</td>
+<td style="text-align:left;height: 50px;">
+GCF_943735745.2
+</td>
+<td style="text-align:left;height: 50px;">
+169.6 Mb
+</td>
+<td style="text-align:left;height: 50px;">
+<a href="https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943735745.2/"
+class="uri">https://www.ncbi.nlm.nih.gov/datasets/gene/GCF_943735745.2/</a>
+</td>
 </tr>
 </tbody>
 </table>
@@ -988,20 +1555,22 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] knitr_1.42      workflowr_1.7.1
+[1] kableExtra_1.4.0 knitr_1.42       workflowr_1.7.1 
 
 loaded via a namespace (and not attached):
  [1] Rcpp_1.0.10       compiler_4.2.3    pillar_1.9.0      bslib_0.4.2      
  [5] later_1.3.0       git2r_0.33.0      jquerylib_0.1.4   tools_4.2.3      
- [9] getPass_0.2-4     digest_0.6.31     jsonlite_1.8.4    evaluate_0.20    
-[13] lifecycle_1.0.3   tibble_3.2.1      pkgconfig_2.0.3   rlang_1.1.1      
-[17] cli_3.6.1         rstudioapi_0.15.0 yaml_2.3.7        xfun_0.38        
-[21] fastmap_1.1.1     httr_1.4.7        stringr_1.5.0     fs_1.6.1         
-[25] vctrs_0.6.3       sass_0.4.5        rprojroot_2.0.3   glue_1.6.2       
-[29] R6_2.5.1          processx_3.8.2    fansi_1.0.4       rmarkdown_2.21   
-[33] callr_3.7.3       magrittr_2.0.3    whisker_0.4.1     ps_1.7.5         
-[37] promises_1.2.0.1  htmltools_0.5.5   httpuv_1.6.9      utf8_1.2.3       
-[41] stringi_1.7.12    cachem_1.0.7     </code></pre>
+ [9] getPass_0.2-4     digest_0.6.31     viridisLite_0.4.1 jsonlite_1.8.4   
+[13] evaluate_0.20     lifecycle_1.0.3   tibble_3.2.1      pkgconfig_2.0.3  
+[17] rlang_1.1.1       cli_3.6.1         rstudioapi_0.15.0 yaml_2.3.7       
+[21] xfun_0.38         fastmap_1.1.1     xml2_1.3.5        httr_1.4.7       
+[25] stringr_1.5.0     systemfonts_1.0.4 fs_1.6.1          vctrs_0.6.3      
+[29] sass_0.4.5        rprojroot_2.0.3   svglite_2.1.3     glue_1.6.2       
+[33] R6_2.5.1          processx_3.8.2    fansi_1.0.4       rmarkdown_2.21   
+[37] callr_3.7.3       magrittr_2.0.3    whisker_0.4.1     scales_1.2.1     
+[41] ps_1.7.5          promises_1.2.0.1  htmltools_0.5.5   colorspace_2.1-0 
+[45] httpuv_1.6.9      utf8_1.2.3        stringi_1.7.12    munsell_0.5.0    
+[49] cachem_1.0.7     </code></pre>
 </div>
 </div>
 
