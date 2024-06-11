@@ -75,7 +75,7 @@ if (window.hljs) {
 
 
 
-<link rel="stylesheet" href="minty.css" type="text/css" />
+<link rel="stylesheet" href="simplex.css" type="text/css" />
 
 
 
@@ -370,7 +370,7 @@ div.tocify {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-ok text-success"
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -381,8 +381,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
-</a>
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -391,13 +391,13 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2024-06-06
+<strong>Last updated:</strong> 2024-06-10
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 0
+aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>Orthoptera/</code> <span
@@ -420,18 +420,21 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
-</a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate"
+<div id="strongRMarkdownfilestronguncommittedchanges"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git
-repository, you know the exact version of the code that produced these
-results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
 </div>
 </div>
 </div>
@@ -522,15 +525,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree21b5f4aadaeca546e2951684bdf7401c5c32f5fdtargetblank21b5f4aa">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree016e53f317a0cc1eedafe5f8bbecabd653c6f069targetblank016e53fa">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/juaruk/Orthoptera/tree/21b5f4aadaeca546e2951684bdf7401c5c32f5fd" target="_blank">21b5f4a</a>
+<a href="https://github.com/juaruk/Orthoptera/tree/016e53f317a0cc1eedafe5f8bbecabd653c6f069" target="_blank">016e53f</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree21b5f4aadaeca546e2951684bdf7401c5c32f5fdtargetblank21b5f4aa"
+id="strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree016e53f317a0cc1eedafe5f8bbecabd653c6f069targetblank016e53fa"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -540,7 +543,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/juaruk/Orthoptera/tree/21b5f4aadaeca546e2951684bdf7401c5c32f5fd" target="_blank">21b5f4a</a>.
+<a href="https://github.com/juaruk/Orthoptera/tree/016e53f317a0cc1eedafe5f8bbecabd653c6f069" target="_blank">016e53f</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -561,9 +564,11 @@ Ignored files:
 
 Untracked files:
     Untracked:  analysis/minty.css
+    Untracked:  analysis/simplex.css
 
 Unstaged changes:
     Modified:   analysis/_site.yml
+    Modified:   analysis/first-analysis.Rmd
 
 </code></pre>
 <p>
@@ -609,6 +614,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/juaruk/Orthoptera/9f46048f129c8350c17823ed597e3beb31092805/docs/first-analysis.html" target="_blank">9f46048</a>
+</td>
+<td>
+juaruk
+</td>
+<td>
+2024-06-06
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -669,9 +691,9 @@ wflow_publish("analysis/first-analysis.Rmd")
 </div>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>This document is a way for us to take <em>notes</em>&gt;.<br />
-- This is easy to write<br />
-- this is paiful to push to Git</p>
+<p>This website provides a detailed documentation on the analysis of the
+comparison of <em>Anabrus simplex</em> (Mormon cricket) genomes within
+the Orthoptera order and with Insecta outgroups.</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -697,21 +719,17 @@ locale:
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
-other attached packages:
-[1] workflowr_1.7.1
-
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.10       compiler_4.2.3    pillar_1.9.0      bslib_0.4.2      
- [5] later_1.3.0       git2r_0.33.0      jquerylib_0.1.4   tools_4.2.3      
- [9] getPass_0.2-4     digest_0.6.31     jsonlite_1.8.4    evaluate_0.20    
-[13] lifecycle_1.0.3   tibble_3.2.1      pkgconfig_2.0.3   rlang_1.1.1      
-[17] cli_3.6.1         rstudioapi_0.15.0 yaml_2.3.7        xfun_0.38        
-[21] fastmap_1.1.1     httr_1.4.7        stringr_1.5.0     knitr_1.42       
-[25] fs_1.6.1          vctrs_0.6.3       sass_0.4.5        rprojroot_2.0.3  
-[29] glue_1.6.2        R6_2.5.1          processx_3.8.2    fansi_1.0.4      
-[33] rmarkdown_2.21    callr_3.7.3       magrittr_2.0.3    whisker_0.4.1    
-[37] ps_1.7.5          promises_1.2.0.1  htmltools_0.5.5   httpuv_1.6.9     
-[41] utf8_1.2.3        stringi_1.7.12    cachem_1.0.7     </code></pre>
+ [1] Rcpp_1.0.10       rstudioapi_0.15.0 whisker_0.4.1     knitr_1.42       
+ [5] magrittr_2.0.3    workflowr_1.7.1   R6_2.5.1          rlang_1.1.1      
+ [9] fastmap_1.1.1     fansi_1.0.4       stringr_1.5.0     tools_4.2.3      
+[13] xfun_0.38         utf8_1.2.3        cli_3.6.1         git2r_0.33.0     
+[17] jquerylib_0.1.4   htmltools_0.5.5   rprojroot_2.0.3   yaml_2.3.7       
+[21] digest_0.6.31     tibble_3.2.1      lifecycle_1.0.3   later_1.3.0      
+[25] sass_0.4.5        vctrs_0.6.3       promises_1.2.0.1  fs_1.6.1         
+[29] cachem_1.0.7      glue_1.6.2        evaluate_0.20     rmarkdown_2.21   
+[33] stringi_1.7.12    bslib_0.4.2       compiler_4.2.3    pillar_1.9.0     
+[37] jsonlite_1.8.4    httpuv_1.6.9      pkgconfig_2.0.3  </code></pre>
 </div>
 </div>
 

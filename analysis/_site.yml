@@ -15,7 +15,7 @@ navbar:
     href: https://github.com/juaruk/Orthoptera
 output:
   workflowr::wflow_html:
+    css: simplex.css
     toc: yes
     toc_float: yes
-    theme: cosmo
     highlight: textmate

@@ -9,10 +9,7 @@ editor_options:
 
 ## Introduction
 
-This document is a way for us to take *notes*>.  
-- This is easy to write  
-- this is paiful to push to Git  
-
+This website provides a detailed documentation on the analysis of the comparison of *Anabrus simplex* (Mormon cricket) genomes within the Orthoptera order and with Insecta outgroups. 
 
 ```{r}
 
