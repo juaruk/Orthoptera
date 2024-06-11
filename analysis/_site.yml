@@ -8,7 +8,7 @@ navbar:
   - text: About
     href: about.html
   - text: Comparative Genomics
-    href: fist-analysis.html
+    href: first-analysis.html
   - text: License
     href: license.html
   right:
