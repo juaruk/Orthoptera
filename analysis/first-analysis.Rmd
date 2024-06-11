@@ -6,8 +6,20 @@ output: workflowr::wflow_html
 editor_options:
   chunk_output_type: console
 ---
+
 ## Analysis
 Here is my analysis.  
 
+```{r}
+library(knitr)
+# Read data from CSV file
 
+file <- "analysis/OrthoFindertable.csv"
+if(file.exists(file)) {
+  data <- read.csv(file)
+  knitr::kable(data, caption = "CSV Table")
+} else {
+  print("File not found.")
+}
 
+```
