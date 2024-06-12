@@ -10,21 +10,53 @@ editor_options:
 ## Analysis
 Here is my analysis.  
 
-```{r}
+
+
+
+```{css, echo=FALSE}
+.custom-text {
+  display: block;
+  background-color: #CCFFCC; /* Set background color */
+  font-size: 20px;
+  color: #004040;
+  font-weight: bold;
+  font-family: 'Open Sans', Arial, sans-serif;
+  padding: 5px;
+}
+```
+<span class="custom-text" style="text-align: center;">Candidate Table</span>
+
+```{r echo=FALSE}
 library(knitr)
 library(kableExtra)
+library(htmltools)
 # Read data from CSV file
-
 file <- "analysis/OrthoFindertable.csv"
 if(file.exists(file)) {
   data <- read.csv(file)
-  data[, 2] <- paste0("*", data[, 2], "*")
-  kable(data, caption = "CSV Table", escape = FALSE, format = "html") %>%
+  data[, 1] <- paste0("*", data[, 1], "*")
+  for (i in 1:nrow(data)) {
+  # Modify the value in the sixth column
+    if (data[i, 6] != ""){
+      data[i, 6] <- paste0("[yes]", "(", data[i, 6], ")")
+    }
+    else{
+      data[i, 6] <- "no"
+    }
+  }
+
+  # Render the text using kable
+
+  kable(data, align = "c", format = "html") %>%
   kable_styling(full_width = FALSE) %>%
   row_spec(0, bold = TRUE) %>%  
-  row_spec(1:nrow(data), extra_css = "height: 50px;")
+  row_spec(1:nrow(data), extra_css = "height: 50px;") %>%
+  scroll_box(width = "100%", height = "417px") 
+  
 } else {
   print("File not found.")
 }
 
+
 ```
+
