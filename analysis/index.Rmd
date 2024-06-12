@@ -7,4 +7,5 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+## Introduction
+This website provides a detailed documentation on the analysis of the comparison of *Anabrus simplex* (Mormon cricket) genomes within the Orthoptera order and with Insecta outgroups. 
