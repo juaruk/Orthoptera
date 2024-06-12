@@ -1,12 +1,12 @@
 ---
-title: "first-analysis"
+title: "First Analysis"
 author: "juaruk"
 date: "2024-06-06"
-output: workflowr::wflow_html
+output: 
+  workflowr::wflow_html
 editor_options:
   chunk_output_type: console
 ---
-
 ## Analysis
 Here is my analysis.  
 
