@@ -3,13 +3,13 @@ output_dir: ../docs
 navbar:
   title: Orthoptera
   left:
-  - text: Home
+  - text: "Home"
     href: index.html
-  - text: About
+  - text: "About"
     href: about.html
-  - text: Comparative Genomics
+  - text: "Comparative Genomics"
     href: first-analysis.html
-  - text: License
+  - text: "License"
     href: license.html
   right:
   - icon: fab fa-github
