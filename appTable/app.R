@@ -4,8 +4,8 @@ library(DT)
 file <- "OrthoFindertable2.csv"
 if (file.exists(file)) {
   data <- read.csv(file)
-  copychoices <- 5:ncol(data)
-  names(copychoices) <- names(data)[5:ncol(data)]
+  copychoices <- 5:(ncol(data) -1)
+  names(copychoices) <- names(data)[5:(ncol(data)-1)]
 } else{
   data.frame(Message = "File not found.")
   copychoices <- NULL
