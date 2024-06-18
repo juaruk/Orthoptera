@@ -1,0 +1,16 @@
+---
+title: "child1"
+author: "Julia Arukakkal"
+date: "2024-06-18"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+Hello my name is Julia horray.
+
+```{r}
+
+```
+
