@@ -17,6 +17,5 @@ The second project, **Population Genomics of Large Orthoptera Genomes** aims to 
 ```{r, echo=FALSE}
 library(knitr)
 include_graphics("assets/locusts.png", error = FALSE)
-
 ```
 

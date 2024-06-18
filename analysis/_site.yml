@@ -5,7 +5,7 @@ navbar:
   left:
   - text: "Home"
     href: index.html
-  - text: "About"
+  - text: "Website Development"
     href: about.html
   - text: "Comparative Genomics"
     href: first-analysis.html
