@@ -8,4 +8,15 @@ editor_options:
 ---
 
 ## Introduction
-This website provides a detailed documentation on the analysis of the comparison of *Anabrus simplex* (Mormon cricket) genomes within the Orthoptera order and with Insecta outgroups. 
+This website provides a detailed documentation on various projects regarding the Orthoptera order of insects.  
+  
+The first project, **Comparative Genomics of Large Orthoptera Genomes**, aims to compare the sequenced and unannotated genome of *Anabrus simplex* (Mormon cricket) with other Orthoptera genomes and outgroups using TOGA. Additionally, annotated genomes inside Orthoptera will be compared using OrthoFinder. 
+  
+The second project, **Population Genomics of Large Orthoptera Genomes** aims to finesse the current pipeline for population genomics, and provide accurate analysis for species of interest, including *Anabrus simplex*(Mormon cricket), *Schistocerca piceifrons*(Central American Locust), and Eremidium grasshoppers. 
+  
+```{r, echo=FALSE}
+library(knitr)
+include_graphics("assets/locusts.png", error = FALSE)
+
+```
+
