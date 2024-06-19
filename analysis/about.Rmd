@@ -6,3 +6,8 @@ editor_options:
   chunk_output_type: console
 ---
 
+## Guide
+```{r, echo=FALSE}
+library(knitr)
+include_graphics("assets/website_development.png", error = FALSE)
+```

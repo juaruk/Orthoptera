@@ -7,12 +7,6 @@ output:
 editor_options:
   chunk_output_type: console
 ---
-## Analysis
-Here is my analysis.  
-
-
-
-
 ```{css, echo=FALSE}
 .custom-text {
   display: block;
@@ -24,7 +18,8 @@ Here is my analysis.
   padding: 5px;
 }
 ```
-<span class="custom-text" style="text-align: center;">Candidate Table</span>
+## Data Tables
+<head><span class="custom-text" style="text-align: center;">Candidate Table</span></head>
 <div style="border: 1px solid #ddd; padding: 10px; overflow: hidden;">
   <iframe src="https://julia-arukakkal.shinyapps.io/apptable/" 
           width="100%" 
