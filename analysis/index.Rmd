@@ -49,8 +49,11 @@ editor_options:
   <span class="content">
     This website documents projects on
     insects in the order Orthoptera (crickets, locusts, grasshoppers, 
-    and katydids).
-    <a href="about.Rmd">Link to Another R Markdown File</a>
+    and katydids). 
+    <br>
+    <br>
+    <a href="about.html"> Click here for more information </a>
+    <br>
   </span>
 </span>
 
@@ -61,6 +64,10 @@ editor_options:
        <b>Project 1: <em>Comparative Genomics of Large Orthoptera Genomes</em></b>   
        <br>
         Compares Orthoptera genomes with OrthoFinder and specifically *Anabrus simplex* (Mormon cricket) with TOGA.
+        <br>
+        <br>
+        <br>
+        <a href="first-analysis.html"> Click here for more information </a>
         <br>
   </span>
 </span>
@@ -74,6 +81,10 @@ editor_options:
        <br>
        Finesses the current pipeline for accurate analysis of species of interest, including *Anabrus simplex* (Mormon cricket), *Schistocerca piceifrons* (Central American Locust), and Eremidium grasshoppers
        <br>
+        <br>
+        <br>
+        <a href="project2.html"> Click here for more information </a>
+        <br>
   </span>
 </span>
   

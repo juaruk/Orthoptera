@@ -9,6 +9,8 @@ navbar:
     href: about.html
   - text: "Comparative Genomics"
     href: first-analysis.html
+  - text: "Population Genomics"
+    href: project2.html
   - text: "License"
     href: license.html
   right:
