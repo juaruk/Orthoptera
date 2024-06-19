@@ -50,6 +50,7 @@ editor_options:
     This website documents projects on
     insects in the order Orthoptera (crickets, locusts, grasshoppers, 
     and katydids).
+    <a href="about.Rmd">Link to Another R Markdown File</a>
   </span>
 </span>
 
@@ -71,7 +72,7 @@ editor_options:
     <span class="content">
        <b>Project 2: <em>Population Genomics of Large Orthoptera Genomes</em></b>  
        <br>
-       Finesses the current pipeline for accurate analysis of species of interest, (*Anabrus simplex*(Mormon cricket), *Schistocerca piceifrons*(Central American Locust), and Eremidium grasshoppers)
+       Finesses the current pipeline for accurate analysis of species of interest, including *Anabrus simplex* (Mormon cricket), *Schistocerca piceifrons* (Central American Locust), and Eremidium grasshoppers
        <br>
   </span>
 </span>
