@@ -394,7 +394,7 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
 aria-hidden="true"></span> 0
 </p>
@@ -437,15 +437,99 @@ results.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratreeac0773001e929d52175a6ce504612fa09260448dtargetblankac07730a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20240606code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(20240606)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20240606code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20240606)</code> was run prior to running
+the code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree02f8dd7dee1f623b04330169aab8509501d5fc0dtargetblank02f8dd7a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/juaruk/Orthoptera/tree/ac0773001e929d52175a6ce504612fa09260448d" target="_blank">ac07730</a>
+<a href="https://github.com/juaruk/Orthoptera/tree/02f8dd7dee1f623b04330169aab8509501d5fc0d" target="_blank">02f8dd7</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratreeac0773001e929d52175a6ce504612fa09260448dtargetblankac07730a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree02f8dd7dee1f623b04330169aab8509501d5fc0dtargetblank02f8dd7a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -455,7 +539,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/juaruk/Orthoptera/tree/ac0773001e929d52175a6ce504612fa09260448d" target="_blank">ac07730</a>.
+<a href="https://github.com/juaruk/Orthoptera/tree/02f8dd7dee1f623b04330169aab8509501d5fc0d" target="_blank">02f8dd7</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -477,12 +561,14 @@ Ignored files:
     Ignored:    appTable/.Rhistory
 
 Untracked files:
+    Untracked:  analysis/WebDevelopment/child1.html
     Untracked:  appTable/OrthoFindertable2.csv
     Untracked:  appTable/rsconnect/
     Untracked:  publish_and_push.R
 
 Unstaged changes:
     Modified:   analysis/OrthoFindertable.csv
+    Deleted:    analysis/child1.Rmd
 
 </code></pre>
 <p>
@@ -527,6 +613,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/juaruk/Orthoptera/blob/02f8dd7dee1f623b04330169aab8509501d5fc0d/analysis/about.Rmd" target="_blank">02f8dd7</a>
+</td>
+<td>
+Julia Arukakkal
+</td>
+<td>
+2024-06-18
+</td>
+<td>
+wflow_publish(c("first-analysis.Rmd", "index.Rmd", "about.Rmd",
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/juaruk/Orthoptera/4c9b97358a3cc490bc96291168fde001519f76f9/docs/about.html" target="_blank">4c9b973</a>
+</td>
+<td>
+Julia Arukakkal
+</td>
+<td>
+2024-06-18
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -805,6 +925,50 @@ Start workflowr project.
 </div>
 <hr>
 </div>
+</div>
+</div>
+<div id="guide" class="section level2">
+<h2>Guide</h2>
+<p><img src="assets/website_development.png" style="display: block; margin: auto;" /></p>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.2.3 (2023-03-15 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 22631)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] knitr_1.42
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.10       rstudioapi_0.15.0 whisker_0.4.1     magrittr_2.0.3   
+ [5] workflowr_1.7.1   R6_2.5.1          rlang_1.1.1       fastmap_1.1.1    
+ [9] fansi_1.0.4       highr_0.10        stringr_1.5.0     tools_4.2.3      
+[13] xfun_0.38         utf8_1.2.3        cli_3.6.1         git2r_0.33.0     
+[17] jquerylib_0.1.4   htmltools_0.5.5   rprojroot_2.0.3   yaml_2.3.7       
+[21] digest_0.6.31     tibble_3.2.1      lifecycle_1.0.3   later_1.3.0      
+[25] sass_0.4.5        vctrs_0.6.3       fs_1.6.1          promises_1.2.0.1 
+[29] cachem_1.0.7      glue_1.6.2        evaluate_0.20     rmarkdown_2.21   
+[33] stringi_1.7.12    bslib_0.4.2       compiler_4.2.3    pillar_1.9.0     
+[37] jsonlite_1.8.4    httpuv_1.6.9      pkgconfig_2.0.3  </code></pre>
 </div>
 </div>
 

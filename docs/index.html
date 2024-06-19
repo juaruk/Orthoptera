@@ -521,15 +521,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratreeac0773001e929d52175a6ce504612fa09260448dtargetblankac07730a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree02f8dd7dee1f623b04330169aab8509501d5fc0dtargetblank02f8dd7a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/juaruk/Orthoptera/tree/ac0773001e929d52175a6ce504612fa09260448d" target="_blank">ac07730</a>
+<a href="https://github.com/juaruk/Orthoptera/tree/02f8dd7dee1f623b04330169aab8509501d5fc0d" target="_blank">02f8dd7</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratreeac0773001e929d52175a6ce504612fa09260448dtargetblankac07730a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree02f8dd7dee1f623b04330169aab8509501d5fc0dtargetblank02f8dd7a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -539,7 +539,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/juaruk/Orthoptera/tree/ac0773001e929d52175a6ce504612fa09260448d" target="_blank">ac07730</a>.
+<a href="https://github.com/juaruk/Orthoptera/tree/02f8dd7dee1f623b04330169aab8509501d5fc0d" target="_blank">02f8dd7</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -561,12 +561,14 @@ Ignored files:
     Ignored:    appTable/.Rhistory
 
 Untracked files:
+    Untracked:  analysis/WebDevelopment/child1.html
     Untracked:  appTable/OrthoFindertable2.csv
     Untracked:  appTable/rsconnect/
     Untracked:  publish_and_push.R
 
 Unstaged changes:
     Modified:   analysis/OrthoFindertable.csv
+    Deleted:    analysis/child1.Rmd
 
 </code></pre>
 <p>
@@ -611,6 +613,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/juaruk/Orthoptera/blob/02f8dd7dee1f623b04330169aab8509501d5fc0d/analysis/index.Rmd" target="_blank">02f8dd7</a>
+</td>
+<td>
+Julia Arukakkal
+</td>
+<td>
+2024-06-18
+</td>
+<td>
+wflow_publish(c("first-analysis.Rmd", "index.Rmd", "about.Rmd",
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/juaruk/Orthoptera/4c9b97358a3cc490bc96291168fde001519f76f9/docs/index.html" target="_blank">4c9b973</a>
+</td>
+<td>
+Julia Arukakkal
+</td>
+<td>
+2024-06-18
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -924,59 +960,65 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<div id="introduction" class="section level2">
+<div id="introduction" class="section level1 tabset">
+<h1 class="tabset">Introduction</h1>
+<div id="introduction-1" class="section level2">
 <h2>Introduction</h2>
-<p>This website provides a detailed documentation on various projects
-regarding the Orthoptera order of insects.</p>
-<p>The first project, <strong>Comparative Genomics of Large Orthoptera
-Genomes</strong>, aims to compare the sequenced and unannotated genome
-of <em>Anabrus simplex</em> (Mormon cricket) with other Orthoptera
-genomes and outgroups using TOGA. Additionally, annotated genomes inside
-Orthoptera will be compared using OrthoFinder.</p>
-<p>The second project, <strong>Population Genomics of Large Orthoptera
-Genomes</strong> aims to finesse the current pipeline for population
-genomics, and provide accurate analysis for species of interest,
-including <em>Anabrus simplex</em>(Mormon cricket), <em>Schistocerca
-piceifrons</em>(Central American Locust), and Eremidium
-grasshoppers.</p>
-<p><img src="assets/locusts.png" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-locusts">
-Past versions of locusts.png
-</button>
-</p>
-<div id="fig-locusts" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/juaruk/Orthoptera/blob/704ce10bf05e122eb937849047117f13d3809599/docs/assets/locusts.png" target="_blank">704ce10</a>
-</td>
-<td>
-Julia Arukakkal
-</td>
-<td>
-2024-06-18
-</td>
-</tr>
-</tbody>
-</table>
+<style type="text/css">
+.tab-container {
+  position: absolute;
+  width: 800px; /* Set the width of the container */
+  max-width: 800px; /* Optional: Set a max-width for the container */
+  height: 300px; /* Set the height of the container */
+  margin: 20px; /* Center the container horizontally */
+}
+
+.tab-container img {
+  width: 800px; /* Adjusted width to fit container */
+  height: 300px; /* Maintain aspect ratio */
+  object-fit: cover; /* Change to 'contain' to fit the entire image within the container */
+  border-radius: 10px; /* Optional: Add rounded corners to the image */
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15px; /* Adjusted font size */
+  color: #c8fae6; /* Set text color to white */
+  background-color: rgb(17, 20, 35, 0.97); /* Semi-transparent background for better readability */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 100%; /* Adjust the width of the text box */
+  max-width: 800px; /* Optional: Set a maximum width for the text box */
+}
+
+</style>
+<p><span class="tab-container"> <img src="assets/locusts.png"> <span
+class="content"> This website documents projects on insects in the order
+Orthoptera (crickets, locusts, grasshoppers, and katydids). </span>
+</span></p>
 </div>
+<div id="project-1" class="section level2">
+<h2>Project 1</h2>
+<p><span class="tab-container"> <img src="assets/project1.png"> <span
+class="content"> <b>Project 1: <em>Comparative Genomics of Large
+Orthoptera Genomes</em></b><br />
+<br> Compares Orthoptera genomes with OrthoFinder and specifically
+<em>Anabrus simplex</em> (Mormon cricket) with TOGA. <br> </span>
+</span></p>
 </div>
+<div id="project-2" class="section level2">
+<h2>Project 2</h2>
+<p><span class="tab-container"> <img src="assets/project2.png"> <span
+class="content"> <b>Project 2: <em>Population Genomics of Large
+Orthoptera Genomes</em></b><br />
+<br> Finesses the current pipeline for accurate analysis of species of
+interest, (<em>Anabrus simplex</em>(Mormon cricket), <em>Schistocerca
+piceifrons</em>(Central American Locust), and Eremidium grasshoppers)
+<br> </span> </span></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1002,13 +1044,10 @@ locale:
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
-other attached packages:
-[1] knitr_1.42
-
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.10       rstudioapi_0.15.0 whisker_0.4.1     magrittr_2.0.3   
- [5] workflowr_1.7.1   R6_2.5.1          rlang_1.1.1       fastmap_1.1.1    
- [9] fansi_1.0.4       highr_0.10        stringr_1.5.0     tools_4.2.3      
+ [1] Rcpp_1.0.10       rstudioapi_0.15.0 whisker_0.4.1     knitr_1.42       
+ [5] magrittr_2.0.3    workflowr_1.7.1   R6_2.5.1          rlang_1.1.1      
+ [9] fastmap_1.1.1     fansi_1.0.4       stringr_1.5.0     tools_4.2.3      
 [13] xfun_0.38         utf8_1.2.3        cli_3.6.1         git2r_0.33.0     
 [17] jquerylib_0.1.4   htmltools_0.5.5   rprojroot_2.0.3   yaml_2.3.7       
 [21] digest_0.6.31     tibble_3.2.1      lifecycle_1.0.3   later_1.3.0      
@@ -1016,6 +1055,7 @@ loaded via a namespace (and not attached):
 [29] cachem_1.0.7      glue_1.6.2        evaluate_0.20     rmarkdown_2.21   
 [33] stringi_1.7.12    bslib_0.4.2       compiler_4.2.3    pillar_1.9.0     
 [37] jsonlite_1.8.4    httpuv_1.6.9      pkgconfig_2.0.3  </code></pre>
+</div>
 </div>
 </div>
 
