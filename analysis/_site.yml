@@ -10,7 +10,7 @@ navbar:
       - text: "Guide for Website"
       - href: about.html
       - text: "workflowr"
-      - href: child1.html
+      - href: child5.html
       - text: "Using knitr & kable"
       - href: child2.html
       - text: "shiny"
