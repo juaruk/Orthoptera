@@ -7,7 +7,7 @@ editor_options:
 ---
 
 ## Guide
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width = "700px"}
 library(knitr)
 include_graphics("assets/website_development.png", error = FALSE)
 ```

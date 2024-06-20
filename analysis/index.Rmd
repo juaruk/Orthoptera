@@ -7,7 +7,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-# Introduction {.tabset}
+# About {.tabset}
 ## Introduction 
 
 ```{css, echo=FALSE}

@@ -6,7 +6,17 @@ navbar:
   - text: "Home"
     href: index.html
   - text: "Website Development"
-    href: about.html
+    menu:
+      - text: "Guide for Website"
+      - href: about.html
+      - text: "workflowr"
+      - href: child1.html
+      - text: "Using knitr & kable"
+      - href: child2.html
+      - text: "shiny"
+      - href: child3.html
+      - text: "Custom css & html usage"
+      - href: child4.html
   - text: "Comparative Genomics"
     href: first-analysis.html
   - text: "Population Genomics"
