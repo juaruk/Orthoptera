@@ -10,39 +10,6 @@ editor_options:
 # About {.tabset}
 ## Introduction 
 
-```{css, echo=FALSE}
-.tab-container {
-  position: absolute;
-  width: 800px; /* Set the width of the container */
-  max-width: 800px; /* Optional: Set a max-width for the container */
-  height: 300px; /* Set the height of the container */
-  margin: 20px; /* Center the container horizontally */
-}
-
-.tab-container img {
-  width: 800px; /* Adjusted width to fit container */
-  height: 300px; /* Maintain aspect ratio */
-  object-fit: cover; /* Change to 'contain' to fit the entire image within the container */
-  border-radius: 10px; /* Optional: Add rounded corners to the image */
-}
-
-.content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 15px; /* Adjusted font size */
-  color: #c8fae6; /* Set text color to white */
-  background-color: rgb(17, 20, 35, 0.97); /* Semi-transparent background for better readability */
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  width: 100%; /* Adjust the width of the text box */
-  max-width: 800px; /* Optional: Set a maximum width for the text box */
-}
-
-```
-
 
 <span class="tab-container">
   <img src="assets/locusts.png"> 

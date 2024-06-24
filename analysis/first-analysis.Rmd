@@ -1,5 +1,5 @@
 ---
-title: "First Analysis"
+title: "Data"
 author: "juaruk"
 date: "2024-06-06"
 output: 
@@ -8,15 +8,7 @@ editor_options:
   chunk_output_type: console
 ---
 ```{css, echo=FALSE}
-.custom-text {
-  display: block;
-  background-color: #CCFFCC; /* Set background color */
-  font-size: 20px;
-  color: #004040;
-  font-weight: bold;
-  font-family: 'Open Sans', Arial, sans-serif;
-  padding: 5px;
-}
+
 ```
 ## Data Tables
 <head><span class="custom-text" style="text-align: center;">Candidate Table</span></head>

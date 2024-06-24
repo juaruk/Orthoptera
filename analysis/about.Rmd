@@ -1,13 +1,11 @@
 ---
-title: "Website Development"
+title: "Guide"
 output:
   workflowr::wflow_html
 editor_options:
   chunk_output_type: console
 ---
-
-## Guide
-```{r, echo=FALSE, out.width = "700px"}
+```{r, echo=FALSE, out.width = "600px"}
 library(knitr)
 include_graphics("assets/website_development.png", error = FALSE)
 ```

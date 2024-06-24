@@ -1,5 +1,5 @@
 ---
-title: "child5"
+title: "workflowr"
 author: "Julia Arukakkal"
 date: "2024-06-20"
 output: workflowr::wflow_html
@@ -7,7 +7,163 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Introduction
+## Software 
+I used RStudio as an IDE, using a Linux based system.  
+My workflowR consists of RMarkdown syntax, CSS, HTML, and R.
+
+## Process {.tabset}
+### Installation
+[This is a condensed version of this tutorial](https://workflowr.github.io/workflowr/articles/wflow-01-getting-started.html)  
+If pandoc installation needed, [here are the download instructions](https://pandoc.org/installing.html)  
+Make sure you have a github account before starting.
+<pre><code> 
+install.packages("workflowr") 
+wflow_git_config(user.name = "Your Name", user.email = "email@domain") 
+wflow_start("name_of_project")  
+wflow_build() </code> </pre>
+
+
+The name of your project will also be the default name of the git repository you push to. 
+After executing these two commands, we'll be primarily working in these two directories, 
+so make sure they exist.
+  
+  
+1. /docs  
+    * HTML files (ex. index.html) that are joined together to make the website  
+  
+2. /analysis 
+    *  RMarkdown files (ex. index.Rmd) for writing content
+    *  _site.yml determines things that apply overall for the website, 
+  like the navigation bar & the style
+
+wflow_build() creates an html file from each RMarkdown file, so 
+every RMarkdown file(.Rmd) should have a corresponding HTML file(.html). 
+Click here to move to the next part. 
+  
+### Viewing & Adding Files
+Files can be viewed using the knit button in Rstudio right above the file editor.  
+Here is the command to add a new Rmd file. Make sure to update the _site.yml page.
+<pre> 
+wflow_open("analysis/your_desired_file_name")
+</pre>
+
+### Changing RMarkdown Files
+Every RMarkdown file contains 3 parts, 
+  
+1. The YAML header 
+    * separated by dashes
+    * has page title name
+2. The RMarkdown syntax 
+    * default language after YAML header
+3. Code chunks 
+    * can do many different languages, R, Python, CSS, etc. 
+    * top line is ```{language_name}
+    * ending line is ```
+    * default is to display code, but to not display use ```{language_name, echo=FALSE}  
+    
+### Publishing & Pushing to GitHub
+There are two different types of files, published & unpublished. 
+Files that are created using wflow_open() or wflow_build() only are unpublished. 
+Publishing updates the corresponding HTML files, and adds and commits the Rmd 
+and created html files to the local repository on your computer. 
+
+To determine which Rmd files need to be published, you can use this command
+<pre>
+wflow_status()
+</pre>
+
+You can also use this command for  files that you need inside the RMarkdown files, 
+such as the stylesheet, pictures, etc., so they can be included in the GitHub repository.
+<pre>
+wflow_publish(c("filename.Rmd", "filename2.Rmd"))
+</pre>
+
+To push a file you can use
+<pre>
+wflow_git_push()
+</pre>
+
+Alternatively, you can use
+<pre>
+git push -u origin master
+</pre>
+
+Now the website should be visible on GitHub, under the link in Settings -> Pages. 
+
+
+## Frequently Asked Questions
+<div class="panel panel-primary">
+  <div class="panel-heading">  
+    My website is going to a misspelled html page, resulting in  404 error.
+  </div>
+  <div class="panel-body">
+    1. Navigate to the _site.yml file 
+    2. Under the navbar, where there is a bunch of elements in this format,  
+       - text: "Your Title"  
+       - href: yourhtmlpage.html  
+         
+       Find your misspelled html page, and correct its spelling
+    3. Republish all of the files included in the navbar and the _site.yml 
+        * you need to be able to go back and forth to your corrected html link
+    4. If certains files don't build, you can try using wflow_build("file_name")
+    5. Push to git  
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">  
+    How can I create different horizontal tabs?
+  </div>
+  <div class="panel-body">
+    1. Create a heading with the main title of your horizontal tabs, bigger than what heading you want as the title of your tabs. 
+    2. After the text of the main title add {.tabset}
+    3. Add your tab titles with less # than your main title
+    4. You can add text inside your tabs like normal
+    
+    # MainTitle {.tabset}
+    ## tab1
+    Hello, I'm tab 1
+    ## tab2
+    Hello, I'm tab 2
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">  
+    How can I create subpages for my pages already on my navigation bar?
+  </div>
+  <div class="panel-body">
+    1. Create as many .Rmd files as you have subpages
+    2. Build them
+    3. On your _site.yml, add them under the navbar to the page title you want, like provided
+    4. publish the Rmd files that are under the page title and the _site.yml
+    5. Edit & push to Git once done
+      
+    - text: "Page 1"
+    - href: page1.html
+    - text: "Page 2"
+      menu: 
+        - text: "Subpage 1"
+        - href: child1.html
+        - tex: "Subpage 2"
+        - href: child2.html
+    - text: "Page 3"
+    - href: page3.html
+  
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">  
+    What are some common RMarkdown formating options?
+  </div>
+<a href=https://rstudio.github.io/cheatsheets/rmarkdown.pdf>
+  <div class="panel-body">
+     Here is a great cheatsheet.
+  </div>
+</a>
+</div>
+
 
 ```{r}
 
