@@ -18,9 +18,41 @@ navbar:
       - text: "Custom css & html usage"
       - href: child4.html
   - text: "Comparative Genomics"
-    href: first-analysis.html
+    menu:
+      - text: "Research Goals"
+      - href: cgchild1.html
+      - text: "Genetics Overview"
+      - href: cgchild2.html
+      - text: "Dataset Tables"
+      - href: first-analysis.html
+      - text: "Programs Used"
+      - href: cgchild3.html
+      - text: "Results & Analysis"
+      - href: cgchild4.html
   - text: "Population Genomics"
-    href: project2.html
+    menu:
+      - text: "Research Goals"
+      - href: project2.html
+      - text: "Genetics Overview"
+      - href: pgchild1.html
+      - text: "Dataset Information"
+      - href: pgchild2.html
+      - text: "Programs Used"
+      - href: pgchild3.html
+      - text: "Results & Analysis"
+      - href: pgchild4.html
+  - text: "Programs and Pipelines"
+    menu:
+      - text: "workflowr"
+      - href: child5.Rmd
+      - text: "shiny"
+      - href: child3.Rmd
+      - text: "TOGA"
+      - href: toga.Rmd
+      - text: "OrthoFinder"
+      - href: orthofinder.Rmd
+      - text: "Pipelines"
+      - href: pipelines.Rmd
   - text: "License"
     href: license.html
   right:
