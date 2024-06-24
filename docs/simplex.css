@@ -1527,8 +1527,11 @@ samp {
 }
 code {
   padding: 2px 4px;
-  font-size: 90%;
-  color: #c7254e;
+  font-size: 100%;
+  font-family: "Helvetica Neue", "Open Sans", Consolas;
+  text-align: center;
+  width: 600px;
+  color: #008080;
   background-color: #f9f2f4;
   border-radius: 4px;
 }
@@ -1550,9 +1553,10 @@ pre {
   display: block;
   padding: 8.5px;
   margin: 0 0 9px;
-  font-size: 12px;
+  font-size: 100%;
   line-height: 1.42857143;
-  color: #444444;
+  color: #008080;
+  font-family: "Roboto Mono", "Open Sans", Consolas;
   word-break: break-all;
   word-wrap: break-word;
   background-color: #f5f5f5;
@@ -4853,6 +4857,37 @@ a.label:focus {
 .label-danger[href]:focus {
   background-color: #ac6819;
 }
+
+.tab-container {
+  position: absolute;
+  width: 800px; /* Set the width of the container */
+  max-width: 800px; /* Optional: Set a max-width for the container */
+  height: 300px; /* Set the height of the container */
+  margin: 20px; /* Center the container horizontally */
+}
+
+.tab-container img {
+  width: 800px; /* Adjusted width to fit container */
+  height: 300px; /* Maintain aspect ratio */
+  object-fit: cover; /* Change to 'contain' to fit the entire image within the container */
+  border-radius: 10px; /* Optional: Add rounded corners to the image */
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15px; /* Adjusted font size */
+  color: #c8fae6; /* Set text color to white */
+  background-color: rgb(17, 20, 35, 0.97); /* Semi-transparent background for better readability */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 100%; /* Adjust the width of the text box */
+  max-width: 800px; /* Optional: Set a maximum width for the text box */
+}
+
 .badge {
   display: inline-block;
   min-width: 10px;
@@ -5377,6 +5412,7 @@ button.list-group-item-danger.active:focus {
 }
 .panel-heading {
   padding: 10px 15px;
+  font-size: 15px;
   border-bottom: 1px solid transparent;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
@@ -5387,7 +5423,7 @@ button.list-group-item-danger.active:focus {
 .panel-title {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 15px;
+  font-size: 20px;
   color: inherit;
 }
 .panel-title > a,
@@ -5707,6 +5743,17 @@ button.list-group-item-danger.active:focus {
 .panel-danger > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #d9831f;
 }
+
+.custom-text {
+  display: block;
+  background-color: #CCFFCC; /* Set background color */
+  font-size: 20px;
+  color: #004040;
+  font-weight: bold;
+  font-family: 'Open Sans', Arial, sans-serif;
+  padding: 5px;
+}
+
 .embed-responsive {
   position: relative;
   display: block;

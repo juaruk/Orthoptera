@@ -363,11 +363,92 @@ div.tocify {
     </li>
   </ul>
 </li>
-<li>
-  <a href="first-analysis.html">Comparative Genomics</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Comparative Genomics
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Research Goals</li>
+    <li>
+      <a href="cgchild1.html"></a>
+    </li>
+    <li class="dropdown-header">Genetics Overview</li>
+    <li>
+      <a href="cgchild2.html"></a>
+    </li>
+    <li class="dropdown-header">Dataset Tables</li>
+    <li>
+      <a href="first-analysis.html"></a>
+    </li>
+    <li class="dropdown-header">Programs Used</li>
+    <li>
+      <a href="cgchild3.html"></a>
+    </li>
+    <li class="dropdown-header">Results &amp; Analysis</li>
+    <li>
+      <a href="cgchild4.html"></a>
+    </li>
+  </ul>
 </li>
-<li>
-  <a href="project2.html">Population Genomics</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Population Genomics
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Research Goals</li>
+    <li>
+      <a href="project2.html"></a>
+    </li>
+    <li class="dropdown-header">Genetics Overview</li>
+    <li>
+      <a href="pgchild1.html"></a>
+    </li>
+    <li class="dropdown-header">Dataset Information</li>
+    <li>
+      <a href="pgchild2.html"></a>
+    </li>
+    <li class="dropdown-header">Programs Used</li>
+    <li>
+      <a href="pgchild3.html"></a>
+    </li>
+    <li class="dropdown-header">Results &amp; Analysis</li>
+    <li>
+      <a href="pgchild4.html"></a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Programs and Pipelines
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">workflowr</li>
+    <li>
+      <a href="child5.Rmd"></a>
+    </li>
+    <li class="dropdown-header">shiny</li>
+    <li>
+      <a href="child3.Rmd"></a>
+    </li>
+    <li class="dropdown-header">TOGA</li>
+    <li>
+      <a href="toga.Rmd"></a>
+    </li>
+    <li class="dropdown-header">OrthoFinder</li>
+    <li>
+      <a href="orthofinder.Rmd"></a>
+    </li>
+    <li class="dropdown-header">Pipelines</li>
+    <li>
+      <a href="pipelines.Rmd"></a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="license.html">License</a>
@@ -419,11 +500,11 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2024-06-20
+<strong>Last updated:</strong> 2024-06-24
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
 aria-hidden="true"></span> 0
 </p>
@@ -466,99 +547,15 @@ results.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
-</p>
-</div>
-<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great job! The global environment was empty. Objects defined in the
-global environment can affect the analysis in your R Markdown file in
-unknown ways. For reproduciblity it’s best to always run the code in an
-empty environment.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20240606code">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Seed:</strong>
-<code>set.seed(20240606)</code> </a>
-</p>
-</div>
-<div id="strongSeedstrongcodesetseed20240606code"
-class="panel-collapse collapse">
-<div class="panel-body">
-<p>The command <code>set.seed(20240606)</code> was run prior to running
-the code in the R Markdown file. Setting a seed ensures that any results
-that rely on randomness, e.g. subsampling or permutations, are
-reproducible.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Session information:</strong>
-recorded </a>
-</p>
-</div>
-<div id="strongSessioninformationstrongrecorded"
-class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great job! Recording the operating system, R version, and package
-versions is critical for reproducibility.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Cache:</strong> none </a>
-</p>
-</div>
-<div id="strongCachestrongnone" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Nice! There were no cached chunks for this analysis, so you can be
-confident that you successfully produced the results during this
-run.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
-</p>
-</div>
-<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great job! Using relative paths to the files within your workflowr
-project makes it easier to run your code on other machines.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratreefbf26919331587691f953607f163b47751f89f53targetblankfbf2691a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree20c862053a61b44c649dbd99e5a35dd2755fb70btargetblank20c8620a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/juaruk/Orthoptera/tree/fbf26919331587691f953607f163b47751f89f53" target="_blank">fbf2691</a>
+<a href="https://github.com/juaruk/Orthoptera/tree/20c862053a61b44c649dbd99e5a35dd2755fb70b" target="_blank">20c8620</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratreefbf26919331587691f953607f163b47751f89f53targetblankfbf2691a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree20c862053a61b44c649dbd99e5a35dd2755fb70btargetblank20c8620a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -568,7 +565,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/juaruk/Orthoptera/tree/fbf26919331587691f953607f163b47751f89f53" target="_blank">fbf2691</a>.
+<a href="https://github.com/juaruk/Orthoptera/tree/20c862053a61b44c649dbd99e5a35dd2755fb70b" target="_blank">20c8620</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -599,7 +596,9 @@ Untracked files:
 
 Unstaged changes:
     Modified:   analysis/OrthoFindertable.csv
+    Modified:   analysis/_site.yml
     Deleted:    analysis/child1.Rmd
+    Modified:   analysis/simplex.css
 
 </code></pre>
 <p>
@@ -644,6 +643,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/juaruk/Orthoptera/blob/20c862053a61b44c649dbd99e5a35dd2755fb70b/analysis/index.Rmd" target="_blank">20c8620</a>
+</td>
+<td>
+Julia Arukakkal
+</td>
+<td>
+2024-06-24
+</td>
+<td>
+wflow_publish("*.Rmd")
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/juaruk/Orthoptera/00713b4c67200567b25b4bfb9a0e1a32c31abfe7/docs/index.html" target="_blank">00713b4</a>
+</td>
+<td>
+Julia Arukakkal
+</td>
+<td>
+2024-06-20
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -1114,38 +1147,6 @@ Start workflowr project.
 <h1 class="tabset">About</h1>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<style type="text/css">
-.tab-container {
-  position: absolute;
-  width: 800px; /* Set the width of the container */
-  max-width: 800px; /* Optional: Set a max-width for the container */
-  height: 300px; /* Set the height of the container */
-  margin: 20px; /* Center the container horizontally */
-}
-
-.tab-container img {
-  width: 800px; /* Adjusted width to fit container */
-  height: 300px; /* Maintain aspect ratio */
-  object-fit: cover; /* Change to 'contain' to fit the entire image within the container */
-  border-radius: 10px; /* Optional: Add rounded corners to the image */
-}
-
-.content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 15px; /* Adjusted font size */
-  color: #c8fae6; /* Set text color to white */
-  background-color: rgb(17, 20, 35, 0.97); /* Semi-transparent background for better readability */
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  width: 100%; /* Adjust the width of the text box */
-  max-width: 800px; /* Optional: Set a maximum width for the text box */
-}
-
-</style>
 <p><span class="tab-container"> <img src="assets/locusts.png"> <span
 class="content"> This website documents projects on insects in the order
 Orthoptera (crickets, locusts, grasshoppers, and katydids). <br> <br>
@@ -1172,43 +1173,6 @@ interest, including <em>Anabrus simplex</em> (Mormon cricket),
 <em>Schistocerca piceifrons</em> (Central American Locust), and
 Eremidium grasshoppers <br> <br> <br> <a href="project2.html"> Click
 here for more information </a> <br> </span> </span></p>
-<br>
-<p>
-<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
-<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-Session information
-</button>
-</p>
-<div id="workflowr-sessioninfo" class="collapse">
-<pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 4.2.3 (2023-03-15 ucrt)
-Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 10 x64 (build 22631)
-
-Matrix products: default
-
-locale:
-[1] LC_COLLATE=English_United States.utf8 
-[2] LC_CTYPE=English_United States.utf8   
-[3] LC_MONETARY=English_United States.utf8
-[4] LC_NUMERIC=C                          
-[5] LC_TIME=English_United States.utf8    
-
-attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
-
-loaded via a namespace (and not attached):
- [1] Rcpp_1.0.10       rstudioapi_0.15.0 whisker_0.4.1     knitr_1.42       
- [5] magrittr_2.0.3    workflowr_1.7.1   R6_2.5.1          rlang_1.1.1      
- [9] fastmap_1.1.1     fansi_1.0.4       stringr_1.5.0     tools_4.2.3      
-[13] xfun_0.38         utf8_1.2.3        cli_3.6.1         git2r_0.33.0     
-[17] jquerylib_0.1.4   htmltools_0.5.5   rprojroot_2.0.3   yaml_2.3.7       
-[21] digest_0.6.31     tibble_3.2.1      lifecycle_1.0.3   later_1.3.0      
-[25] sass_0.4.5        vctrs_0.6.3       fs_1.6.1          promises_1.2.0.1 
-[29] cachem_1.0.7      glue_1.6.2        evaluate_0.20     rmarkdown_2.21   
-[33] stringi_1.7.12    bslib_0.4.2       compiler_4.2.3    pillar_1.9.0     
-[37] jsonlite_1.8.4    httpuv_1.6.9      pkgconfig_2.0.3  </code></pre>
-</div>
 </div>
 </div>
 
