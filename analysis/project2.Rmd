@@ -1,5 +1,5 @@
 ---
-title: "project2"
+title: "Research Goals"
 author: "Julia Arukakkal"
 date: "2024-06-18"
 output: workflowr::wflow_html
@@ -7,7 +7,12 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Introduction
+The aim of this project is to compare multiple different types of pipelines 
+to figure out which one is the most ideal for population genomics analysis. 
+
+Click here learn more about the pipelines being tested.
+
+Here are the metrics we will be measuring 
 
 ```{r}
 

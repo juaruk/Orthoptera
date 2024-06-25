@@ -25,7 +25,7 @@ navbar:
       - href: cgchild2.html
       - text: "Dataset Tables"
       - href: first-analysis.html
-      - text: "Programs Used"
+      - text: "Tutorial"
       - href: cgchild3.html
       - text: "Results & Analysis"
       - href: cgchild4.html
@@ -37,7 +37,7 @@ navbar:
       - href: pgchild1.html
       - text: "Dataset Information"
       - href: pgchild2.html
-      - text: "Programs Used"
+      - text: "Tutorial"
       - href: pgchild3.html
       - text: "Results & Analysis"
       - href: pgchild4.html
@@ -52,7 +52,15 @@ navbar:
       - text: "OrthoFinder"
       - href: orthofinder.html
       - text: "Pipelines"
-      - href: pipelines.html
+        menu:
+          - text: "About"
+          - href: pipelines.html
+          - text: "snakemake"
+          - href: snakemake.html
+          - text: "PAPipe"
+          - href: papipe.html
+          - text: "PyPop"
+          - href: pypop.html
   - text: "License"
     href: license.html
   right:
