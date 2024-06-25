@@ -384,7 +384,7 @@ div.tocify {
     <li>
       <a href="first-analysis.html"></a>
     </li>
-    <li class="dropdown-header">Programs Used</li>
+    <li class="dropdown-header">Tutorial</li>
     <li>
       <a href="cgchild3.html"></a>
     </li>
@@ -413,7 +413,7 @@ div.tocify {
     <li>
       <a href="pgchild2.html"></a>
     </li>
-    <li class="dropdown-header">Programs Used</li>
+    <li class="dropdown-header">Tutorial</li>
     <li>
       <a href="pgchild3.html"></a>
     </li>
@@ -446,9 +446,26 @@ div.tocify {
     <li>
       <a href="orthofinder.html"></a>
     </li>
-    <li class="dropdown-header">Pipelines</li>
-    <li>
-      <a href="pipelines.html"></a>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pipelines</a>
+      <ul class="dropdown-menu" role="menu">
+        <li class="dropdown-header">About</li>
+        <li>
+          <a href="pipelines.html"></a>
+        </li>
+        <li class="dropdown-header">snakemake</li>
+        <li>
+          <a href="snakemake.html"></a>
+        </li>
+        <li class="dropdown-header">PAPipe</li>
+        <li>
+          <a href="papipe.html"></a>
+        </li>
+        <li class="dropdown-header">PyPop</li>
+        <li>
+          <a href="pypop.html"></a>
+        </li>
+      </ul>
     </li>
   </ul>
 </li>
@@ -635,15 +652,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree343b32d1e4593eadaa61517b9b1dcb9c7556e1f6targetblank343b32da">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree44ac678dc41957b8546afd912666da90f234ac5dtargetblank44ac678a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/juaruk/Orthoptera/tree/343b32d1e4593eadaa61517b9b1dcb9c7556e1f6" target="_blank">343b32d</a>
+<a href="https://github.com/juaruk/Orthoptera/tree/44ac678dc41957b8546afd912666da90f234ac5d" target="_blank">44ac678</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree343b32d1e4593eadaa61517b9b1dcb9c7556e1f6targetblank343b32da"
+id="strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree44ac678dc41957b8546afd912666da90f234ac5dtargetblank44ac678a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -653,7 +670,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/juaruk/Orthoptera/tree/343b32d1e4593eadaa61517b9b1dcb9c7556e1f6" target="_blank">343b32d</a>.
+<a href="https://github.com/juaruk/Orthoptera/tree/44ac678dc41957b8546afd912666da90f234ac5d" target="_blank">44ac678</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -724,6 +741,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/juaruk/Orthoptera/blob/44ac678dc41957b8546afd912666da90f234ac5d/analysis/child5.Rmd" target="_blank">44ac678</a>
+</td>
+<td>
+Julia Arukakkal
+</td>
+<td>
+2024-06-25
+</td>
+<td>
+wflow_publish("analysis/child5.Rmd")
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/juaruk/Orthoptera/2b76b831aa82625d7b7cbc91b286353865b68b4b/docs/child5.html" target="_blank">2b76b83</a>
+</td>
+<td>
+Julia Arukakkal
+</td>
+<td>
+2024-06-25
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -958,16 +1009,16 @@ Settings -&gt; Pages.</p>
 <h2>Frequently Asked Questions</h2>
 <div class="panel panel-primary">
 <div class="panel-heading">
-<pre><code>My website is going to a misspelled html page, resulting in  404 error.</code></pre>
+<pre><code>My website has a 404 error.</code></pre>
 </div>
 <div class="panel-body">
 <pre><code>1. Navigate to the _site.yml file 
 2. Under the navbar, where there is a bunch of elements in this format,  
    - text: &quot;Your Title&quot;  
    - href: yourhtmlpage.html  
-     
-   Find your misspelled html page, and correct its spelling
-3. Republish all of the files included in the navbar and the _site.yml 
+   a. Correct any misspelled href pages 
+   b. Make sure all hrefs hve an .html extension
+3. Republish all of the files that are modified in wflow_status() and the _site.yml 
     * you need to be able to go back and forth to your corrected html link
 4. If certains files don&#39;t build, you can try using wflow_build(&quot;file_name&quot;)
 5. Push to git  </code></pre>
@@ -1015,9 +1066,19 @@ Hello, I&#39;m tab 2</code></pre>
 </div>
 <div class="panel panel-primary">
 <div class="panel-heading">
-<pre><code>What are some common RMarkdown formating options?</code></pre>
+<pre><code>What are some common RMarkdown formatting options?</code></pre>
 </div>
 <a href=https://rstudio.github.io/cheatsheets/rmarkdown.pdf>
+<div class="panel-body">
+<pre><code> Here is a great cheatsheet.</code></pre>
+</div>
+<p></a></p>
+</div>
+<div class="panel panel-primary">
+<div class="panel-heading">
+<pre><code>What are some formatting options for the workflowr package commands?</code></pre>
+</div>
+<a href=https://cran.r-project.org/web/packages/workflowr/workflowr.pdf>
 <div class="panel-body">
 <pre><code> Here is a great cheatsheet.</code></pre>
 </div>
