@@ -44,15 +44,15 @@ navbar:
   - text: "Programs and Pipelines"
     menu:
       - text: "workflowr"
-      - href: child5.Rmd
+      - href: child5.html
       - text: "shiny"
-      - href: child3.Rmd
+      - href: child3.html
       - text: "TOGA"
-      - href: toga.Rmd
+      - href: toga.html
       - text: "OrthoFinder"
-      - href: orthofinder.Rmd
+      - href: orthofinder.html
       - text: "Pipelines"
-      - href: pipelines.Rmd
+      - href: pipelines.html
   - text: "License"
     href: license.html
   right:
