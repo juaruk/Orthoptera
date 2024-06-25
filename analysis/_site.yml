@@ -43,10 +43,6 @@ navbar:
       - href: pgchild4.html
   - text: "Programs and Pipelines"
     menu:
-      - text: "workflowr"
-      - href: child5.Rmd
-      - text: "shiny"
-      - href: child3.Rmd
       - text: "TOGA"
       - href: toga.Rmd
       - text: "OrthoFinder"
