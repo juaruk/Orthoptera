@@ -1,0 +1,12 @@
+name: apptable
+title: appTable
+username: julia-arukakkal
+account: julia-arukakkal
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 12194954
+bundleId: 8754733
+url: https://julia-arukakkal.shinyapps.io/apptable/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
