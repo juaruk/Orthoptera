@@ -108,9 +108,6 @@ All of the parameters that start with cluster are specified within the json file
 
 ## Pipeline {.tabset}
 
-### Indexing 
-
-
 ### Trimming
 Here is my trimming script. 
 
@@ -187,14 +184,36 @@ There are 4 outputs. The good reads are the output that is trimmed. The bad read
   </tbody>
 </table>
 
-### Mapping
+I use FASTQC to check the quality of my trimming report. Here is my rule for fastqc. 
+<pre><code>
+
+rule trim_fastqc:
+    input:
+        read1 = OUTDir + "/trimming/{sample}_R1_paired.fastq.gz",
+        read2 = OUTDir + "/trimming/{sample}_R2_paired.fastq.gz",
+    output:
+        htmlqc1 = OUTDir + "/trimming/report/{sample}_R1_paired_fastqc.html",
+        htmlqc2 = OUTDir + "/trimming/report/{sample}_R2_paired_fastqc.html",
+        zip = OUTDir + "/trimming/report/{sample}_fastqc.zip"
+    shell:
+        """
+        module load FastQC/0.11.9-Java-11
+        fastqc {input.read1}
+        fastqc {input.read2}
+        """
+</pre></code>
+
+It is important to note that trim_fastqc has 3 outputs, 2 html files for both reads, and a zipped file. 
+For more information about the reports that I will be looking at, click here (will add link).
+
+
+### Mapping & Indexing
 
 ### Variant Calling
 
 ### Filtering
 
-## FAQs{.tabset}
-### General
+## Error Log{.tabset}
 <div class="panel panel-primary">
   <div class="panel-heading">  
     My snakefile is taking a long time to run.
@@ -206,17 +225,47 @@ There are 4 outputs. The good reads are the output that is trimmed. The bad read
   </div>
 </div>
 
-
-### Indexing 
-
-
-### Trimming 
-
-### Mapping
-
-### Variant Calling
-
-### Filtering
+<div class="panel panel-primary">
+  <div class="panel-heading"> 
+  Trimming Error: Not in GZIP format
+  </div>
+    
+  <div class="panel-body">
+  <p>
+  <a class="btn btn-success" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    java.lang.RuntimeException: java.util.zip.ZipException: Not in GZIP format
+  </a>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+  <pre> <code>
+    Exception in thread "Thread-1" java.lang.RuntimeException: java.util.zip.ZipException: Not in GZIP format
+	at org.usadellab.trimmomatic.threading.ParserWorker.run(ParserWorker.java:56)
+	at java.base/java.lang.Thread.run(Thread.java:834)  
+Caused by: java.util.zip.ZipException: Not in GZIP format  
+	at java.base/java.util.zip.GZIPInputStream.readHeader(GZIPInputStream.java:166)  
+	at java.base/java.util.zip.GZIPInputStream.<init>(GZIPInputStream.java:80)
+	at java.base/java.util.zip.GZIPInputStream.<init>(GZIPInputStream.java:92)
+	at org.usadellab.trimmomatic.util.ConcatGZIPInputStream$GZIPHelperInputStream.<init>(ConcatGZIPInputStream.java:100)
+	at org.usadellab.trimmomatic.util.ConcatGZIPInputStream$GZIPHelperInputStream.<init>(ConcatGZIPInputStream.java:96)
+	at org.usadellab.trimmomatic.util.ConcatGZIPInputStream.nextGzipInputStream(ConcatGZIPInputStream.java:38)
+	at org.usadellab.trimmomatic.util.ConcatGZIPInputStream.read(ConcatGZIPInputStream.java:75)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:185)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:326)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:392)
+	at org.usadellab.trimmomatic.fastq.FastqParser.parseOne(FastqParser.java:59)
+	at org.usadellab.trimmomatic.fastq.FastqParser.next(FastqParser.java:179)
+	at org.usadellab.trimmomatic.threading.ParserWorker.run(ParserWorker.java:42)
+	... 1 more
+  </pre></code>
+  </div>
+  
+  </div>
+</div>
 
 ```{r}
 

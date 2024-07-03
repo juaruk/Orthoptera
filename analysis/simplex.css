@@ -3151,27 +3151,27 @@ fieldset[disabled] .btn-primary.focus {
 }
 .btn-success {
   color: #ffffff;
-  background-color: #469408;
-  border-color: #469408;
+  background-color: #4a7861;
+  border-color: #184632;
 }
 .btn-success:focus,
 .btn-success.focus {
   color: #ffffff;
-  background-color: #2f6405;
-  border-color: #0d1b01;
+  background-color: #4a7861;
+  border-color: #184632;
 }
 .btn-success:hover {
   color: #ffffff;
-  background-color: #2f6405;
-  border-color: #2b5a05;
+  background-color: #4a7861;
+  border-color: #184632;
 }
 .btn-success:active,
 .btn-success.active,
 .open > .dropdown-toggle.btn-success {
   color: #ffffff;
-  background-color: #2f6405;
+  background-color: #4a7861;
   background-image: none;
-  border-color: #2b5a05;
+  border-color: #184632;
 }
 .btn-success:active:hover,
 .btn-success.active:hover,
@@ -3183,8 +3183,8 @@ fieldset[disabled] .btn-primary.focus {
 .btn-success.active.focus,
 .open > .dropdown-toggle.btn-success.focus {
   color: #ffffff;
-  background-color: #1f4204;
-  border-color: #0d1b01;
+  background-color: #4a7861;
+  border-color: #184632;
 }
 .btn-success.disabled:hover,
 .btn-success[disabled]:hover,
@@ -3195,11 +3195,11 @@ fieldset[disabled] .btn-success:focus,
 .btn-success.disabled.focus,
 .btn-success[disabled].focus,
 fieldset[disabled] .btn-success.focus {
-  background-color: #469408;
-  border-color: #469408;
+  background-color: #4a7861;
+  border-color: #184632;
 }
 .btn-success .badge {
-  color: #469408;
+  color: #184632;
   background-color: #ffffff;
 }
 .btn-info {
@@ -6723,12 +6723,12 @@ button.close {
 }
 .btn-success,
 .btn-success:hover {
-  background-image: linear-gradient(#4da309, #469408 6%, #3f8507);
+  background-color: #4a7861;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4da309', endColorstr='#ff3f8507', GradientType=0);
   background-repeat: no-repeat;
   -webkit-filter: none;
           filter: none;
-  border: 1px solid #2f6405;
+  border: 1px solid #A0DDAD;
 }
 .btn-info,
 .btn-info:hover {
@@ -6814,11 +6814,11 @@ label {
 .has-success.radio-inline label,
 .has-success.checkbox-inline label,
 .has-success .form-control-feedback {
-  color: #469408;
+  color: #0f3923;
 }
 .has-success .form-control,
 .has-success .form-control:focus {
-  border-color: #469408;
+  border-color: #0f3923;
 }
 .pager a {
   color: #444444;
