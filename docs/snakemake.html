@@ -652,15 +652,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratreee2435c6b6017a637df84226a5ab852cb6bd483b2targetblanke2435c6a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratreead9cf19d8c9c661d765868953bf842eeca42f368targetblankad9cf19a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/juaruk/Orthoptera/tree/e2435c6b6017a637df84226a5ab852cb6bd483b2" target="_blank">e2435c6</a>
+<a href="https://github.com/juaruk/Orthoptera/tree/ad9cf19d8c9c661d765868953bf842eeca42f368" target="_blank">ad9cf19</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratreee2435c6b6017a637df84226a5ab852cb6bd483b2targetblanke2435c6a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratreead9cf19d8c9c661d765868953bf842eeca42f368targetblankad9cf19a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -670,7 +670,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/juaruk/Orthoptera/tree/e2435c6b6017a637df84226a5ab852cb6bd483b2" target="_blank">e2435c6</a>.
+<a href="https://github.com/juaruk/Orthoptera/tree/ad9cf19d8c9c661d765868953bf842eeca42f368" target="_blank">ad9cf19</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -742,6 +742,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/juaruk/Orthoptera/blob/ad9cf19d8c9c661d765868953bf842eeca42f368/analysis/snakemake.Rmd" target="_blank">ad9cf19</a>
+</td>
+<td>
+Julia Arukakkal
+</td>
+<td>
+2024-07-03
+</td>
+<td>
+wflow_publish(c("analysis/simplex.css", "analysis/*.Rmd"))
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/juaruk/Orthoptera/e336c2213951a5abb2d45875b4d518c4d3fcb8bd/docs/snakemake.html" target="_blank">e336c22</a>
+</td>
+<td>
+Julia Arukakkal
+</td>
+<td>
+2024-07-03
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -984,9 +1018,6 @@ within the json file created in part 1.</p>
 </div>
 <div id="pipeline" class="section level2 tabset">
 <h2 class="tabset">Pipeline</h2>
-<div id="indexing" class="section level3">
-<h3>Indexing</h3>
-</div>
 <div id="trimming" class="section level3">
 <h3>Trimming</h3>
 <p>Here is my trimming script.</p>
@@ -1105,9 +1136,32 @@ Column content
 </tr>
 </tbody>
 </table>
+I use FASTQC to check the quality of my trimming report. Here is my rule
+for fastqc.
+<pre><code>
+
+rule trim_fastqc:
+    input:
+        read1 = OUTDir + "/trimming/{sample}_R1_paired.fastq.gz",
+        read2 = OUTDir + "/trimming/{sample}_R2_paired.fastq.gz",
+    output:
+        htmlqc1 = OUTDir + "/trimming/report/{sample}_R1_paired_fastqc.html",
+        htmlqc2 = OUTDir + "/trimming/report/{sample}_R2_paired_fastqc.html",
+        zip = OUTDir + "/trimming/report/{sample}_fastqc.zip"
+    shell:
+        """
+        module load FastQC/0.11.9-Java-11
+        fastqc {input.read1}
+        fastqc {input.read2}
+        """
+</pre>
+<p></code></p>
+<p>It is important to note that trim_fastqc has 3 outputs, 2 html files
+for both reads, and a zipped file. For more information about the
+reports that I will be looking at, click here (will add link).</p>
 </div>
-<div id="mapping" class="section level3">
-<h3>Mapping</h3>
+<div id="mapping-indexing" class="section level3">
+<h3>Mapping &amp; Indexing</h3>
 </div>
 <div id="variant-calling" class="section level3">
 <h3>Variant Calling</h3>
@@ -1116,10 +1170,8 @@ Column content
 <h3>Filtering</h3>
 </div>
 </div>
-<div id="faqs" class="section level2 tabset">
-<h2 class="tabset">FAQs</h2>
-<div id="general" class="section level3">
-<h3>General</h3>
+<div id="error-log" class="section level2 tabset">
+<h2 class="tabset">Error Log</h2>
 <div class="panel panel-primary">
 <div class="panel-heading">
 <pre><code>My snakefile is taking a long time to run.</code></pre>
@@ -1130,21 +1182,46 @@ Column content
 3. Increase the amount of memory -&gt; .json file</code></pre>
 </div>
 </div>
+<div class="panel panel-primary">
+<div class="panel-heading">
+Trimming Error: Not in GZIP format
 </div>
-<div id="indexing-1" class="section level3">
-<h3>Indexing</h3>
+<div class="panel-body">
+<p>
+<a class="btn btn-success" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+java.lang.RuntimeException: java.util.zip.ZipException: Not in GZIP
+format </a>
+</p>
+<div id="collapseExample" class="collapse">
+<div class="card card-body">
+<pre> <code>
+    Exception in thread "Thread-1" java.lang.RuntimeException: java.util.zip.ZipException: Not in GZIP format
+    at org.usadellab.trimmomatic.threading.ParserWorker.run(ParserWorker.java:56)
+    at java.base/java.lang.Thread.run(Thread.java:834)  
+Caused by: java.util.zip.ZipException: Not in GZIP format  
+    at java.base/java.util.zip.GZIPInputStream.readHeader(GZIPInputStream.java:166)  
+    at java.base/java.util.zip.GZIPInputStream.<init>(GZIPInputStream.java:80)
+    at java.base/java.util.zip.GZIPInputStream.<init>(GZIPInputStream.java:92)
+    at org.usadellab.trimmomatic.util.ConcatGZIPInputStream$GZIPHelperInputStream.<init>(ConcatGZIPInputStream.java:100)
+    at org.usadellab.trimmomatic.util.ConcatGZIPInputStream$GZIPHelperInputStream.<init>(ConcatGZIPInputStream.java:96)
+    at org.usadellab.trimmomatic.util.ConcatGZIPInputStream.nextGzipInputStream(ConcatGZIPInputStream.java:38)
+    at org.usadellab.trimmomatic.util.ConcatGZIPInputStream.read(ConcatGZIPInputStream.java:75)
+    at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+    at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+    at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+    at java.base/java.io.InputStreamReader.read(InputStreamReader.java:185)
+    at java.base/java.io.BufferedReader.fill(BufferedReader.java:161)
+    at java.base/java.io.BufferedReader.readLine(BufferedReader.java:326)
+    at java.base/java.io.BufferedReader.readLine(BufferedReader.java:392)
+    at org.usadellab.trimmomatic.fastq.FastqParser.parseOne(FastqParser.java:59)
+    at org.usadellab.trimmomatic.fastq.FastqParser.next(FastqParser.java:179)
+    at org.usadellab.trimmomatic.threading.ParserWorker.run(ParserWorker.java:42)
+    ... 1 more
+  </pre>
+</code>
 </div>
-<div id="trimming-1" class="section level3">
-<h3>Trimming</h3>
 </div>
-<div id="mapping-1" class="section level3">
-<h3>Mapping</h3>
 </div>
-<div id="variant-calling-1" class="section level3">
-<h3>Variant Calling</h3>
-</div>
-<div id="filtering-1" class="section level3">
-<h3>Filtering</h3>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1185,7 +1262,6 @@ loaded via a namespace (and not attached):
 [33] rmarkdown_2.21    callr_3.7.3       magrittr_2.0.3    whisker_0.4.1    
 [37] ps_1.7.5          promises_1.2.0.1  htmltools_0.5.5   httpuv_1.6.9     
 [41] utf8_1.2.3        stringi_1.7.12    cachem_1.0.7     </code></pre>
-</div>
 </div>
 </div>
 
