@@ -652,15 +652,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratreec8c9d332ef304518a3d1f9fe7826a338345105cbtargetblankc8c9d33a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratreee2435c6b6017a637df84226a5ab852cb6bd483b2targetblanke2435c6a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/juaruk/Orthoptera/tree/c8c9d332ef304518a3d1f9fe7826a338345105cb" target="_blank">c8c9d33</a>
+<a href="https://github.com/juaruk/Orthoptera/tree/e2435c6b6017a637df84226a5ab852cb6bd483b2" target="_blank">e2435c6</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratreec8c9d332ef304518a3d1f9fe7826a338345105cbtargetblankc8c9d33a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratreee2435c6b6017a637df84226a5ab852cb6bd483b2targetblanke2435c6a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -670,7 +670,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/juaruk/Orthoptera/tree/c8c9d332ef304518a3d1f9fe7826a338345105cb" target="_blank">c8c9d33</a>.
+<a href="https://github.com/juaruk/Orthoptera/tree/e2435c6b6017a637df84226a5ab852cb6bd483b2" target="_blank">e2435c6</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -742,6 +742,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/juaruk/Orthoptera/blob/e2435c6b6017a637df84226a5ab852cb6bd483b2/analysis/snakemake.Rmd" target="_blank">e2435c6</a>
+</td>
+<td>
+Julia Arukakkal
+</td>
+<td>
+2024-07-03
+</td>
+<td>
+wflow_publish(c("analysis/_site.yml", "analysis/*.Rmd"))
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/juaruk/Orthoptera/2fc8ffe8135e00826225832ace16cb833de06068/docs/snakemake.html" target="_blank">2fc8ffe</a>
+</td>
+<td>
+Julia Arukakkal
+</td>
+<td>
+2024-07-03
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -944,8 +978,8 @@ snakemake --latency-wait 3600 --restart-times 1 -j 100 -p --max-jobs-per-second 
 </pre>
 <p></code></p>
 <p>Make sure to load the module and all its dependencies within the
-slurm file. All of the parameter specified that start with cluster are
-specified within the json file created in part 1.</p>
+slurm file. All of the parameters that start with cluster are specified
+within the json file created in part 1.</p>
 </div>
 </div>
 <div id="pipeline" class="section level2 tabset">
@@ -988,7 +1022,8 @@ TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC
 <p></code></p>
 <p>There are 4 outputs. The good reads are the output that is trimmed.
 The bad reads contain the orphaned reads which were removed from one
-sequence, but not the other.</p>
+sequence, but not the other. I recommend storing the bad reads in
+another directory for ease.</p>
 <table class="table table-hover">
 <thead>
 <tr>
@@ -1001,6 +1036,14 @@ Meaning
 </tr>
 </thead>
 <tbody>
+<tr class="table-active">
+<th scope="row">
+PE
+</th>
+<td>
+Paired End -&gt; using both a forward and reverse read.
+</td>
+</tr>
 <tr class="table-active">
 <th scope="row">
 -threads
@@ -1077,6 +1120,16 @@ Column content
 <h2 class="tabset">FAQs</h2>
 <div id="general" class="section level3">
 <h3>General</h3>
+<div class="panel panel-primary">
+<div class="panel-heading">
+<pre><code>My snakefile is taking a long time to run.</code></pre>
+</div>
+<div class="panel-body">
+<pre><code>1. If you are running on command line, try executing as a slurm script
+2. Increase the number of cores
+3. Increase the amount of memory -&gt; .json file</code></pre>
+</div>
+</div>
 </div>
 <div id="indexing-1" class="section level3">
 <h3>Indexing</h3>
