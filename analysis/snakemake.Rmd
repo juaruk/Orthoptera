@@ -103,7 +103,7 @@ snakemake --latency-wait 3600 --restart-times 1 -j 100 -p --max-jobs-per-second 
 </pre></code>
 
 Make sure to load the module and all its dependencies within the slurm file.
-All of the parameter specified that start with cluster are specified within the json file created in part 1.
+All of the parameters that start with cluster are specified within the json file created in part 1.
 
 
 ## Pipeline {.tabset}
@@ -142,7 +142,7 @@ TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC
 
 </pre></code>
 
-There are 4 outputs. The good reads are the output that is trimmed. The bad reads contain the orphaned reads which were removed from one sequence, but not the other. 
+There are 4 outputs. The good reads are the output that is trimmed. The bad reads contain the orphaned reads which were removed from one sequence, but not the other. I recommend storing the bad reads in another directory for ease. 
 
 <table class="table table-hover">
   <thead>
@@ -152,6 +152,10 @@ There are 4 outputs. The good reads are the output that is trimmed. The bad read
     </tr>
   </thead>
   <tbody>
+    <tr class="table-active">
+      <th scope="row">PE</th>
+      <td>Paired End -> using both a forward and reverse read. </td>
+    </tr>
     <tr class="table-active">
       <th scope="row">-threads</th>
       <td>Specifies amount of threads used, more allows for parallelization</td>
@@ -191,7 +195,16 @@ There are 4 outputs. The good reads are the output that is trimmed. The bad read
 
 ## FAQs{.tabset}
 ### General
-
+<div class="panel panel-primary">
+  <div class="panel-heading">  
+    My snakefile is taking a long time to run.
+  </div>
+  <div class="panel-body">
+    1. If you are running on command line, try executing as a slurm script
+    2. Increase the number of cores
+    3. Increase the amount of memory -> .json file
+  </div>
+</div>
 
 
 ### Indexing 

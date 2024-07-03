@@ -1,13 +1,28 @@
 ---
-title: "pgchild3"
+title: "Tutorial"
 author: "Julia Arukakkal"
 date: "2024-06-21"
 output: workflowr::wflow_html
 editor_options:
   chunk_output_type: console
 ---
+# About {.tabset}
 
-## Introduction
+## Introduction 
+<span class="tab-container">
+  <img src="assets/locusts.png"> 
+  <span class="content">
+    Through the usage of rules & wildcards, Snakemake offers an adaptible population genomics pipeline. 
+    <br>
+    <br>
+    <a href="snakemake.html"> Click here for information regarding syntax and my workflow. </a>
+    <br>
+  </span>
+</span>
+
+  
+
+
 
 ```{r}
 
