@@ -384,7 +384,7 @@ div.tocify {
     <li>
       <a href="first-analysis.html"></a>
     </li>
-    <li class="dropdown-header">Programs Used</li>
+    <li class="dropdown-header">Tutorial</li>
     <li>
       <a href="cgchild3.html"></a>
     </li>
@@ -413,7 +413,7 @@ div.tocify {
     <li>
       <a href="pgchild2.html"></a>
     </li>
-    <li class="dropdown-header">Programs Used</li>
+    <li class="dropdown-header">Tutorial</li>
     <li>
       <a href="pgchild3.html"></a>
     </li>
@@ -446,9 +446,26 @@ div.tocify {
     <li>
       <a href="orthofinder.html"></a>
     </li>
-    <li class="dropdown-header">Pipelines</li>
-    <li>
-      <a href="pipelines.html"></a>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pipelines</a>
+      <ul class="dropdown-menu" role="menu">
+        <li class="dropdown-header">About</li>
+        <li>
+          <a href="pipelines.html"></a>
+        </li>
+        <li class="dropdown-header">snakemake</li>
+        <li>
+          <a href="snakemake.html"></a>
+        </li>
+        <li class="dropdown-header">PAPipe</li>
+        <li>
+          <a href="papipe.html"></a>
+        </li>
+        <li class="dropdown-header">PyPop</li>
+        <li>
+          <a href="pypop.html"></a>
+        </li>
+      </ul>
     </li>
   </ul>
 </li>
@@ -504,7 +521,7 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2024-06-25
+<strong>Last updated:</strong> 2024-07-03
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -635,15 +652,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree343b32d1e4593eadaa61517b9b1dcb9c7556e1f6targetblank343b32da">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratreec8c9d332ef304518a3d1f9fe7826a338345105cbtargetblankc8c9d33a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/juaruk/Orthoptera/tree/343b32d1e4593eadaa61517b9b1dcb9c7556e1f6" target="_blank">343b32d</a>
+<a href="https://github.com/juaruk/Orthoptera/tree/c8c9d332ef304518a3d1f9fe7826a338345105cb" target="_blank">c8c9d33</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratree343b32d1e4593eadaa61517b9b1dcb9c7556e1f6targetblank343b32da"
+id="strongRepositoryversionstrongahrefhttpsgithubcomjuarukOrthopteratreec8c9d332ef304518a3d1f9fe7826a338345105cbtargetblankc8c9d33a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -653,7 +670,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/juaruk/Orthoptera/tree/343b32d1e4593eadaa61517b9b1dcb9c7556e1f6" target="_blank">343b32d</a>.
+<a href="https://github.com/juaruk/Orthoptera/tree/c8c9d332ef304518a3d1f9fe7826a338345105cb" target="_blank">c8c9d33</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -727,6 +744,40 @@ Message
 <tbody>
 <tr>
 <td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/juaruk/Orthoptera/blob/c8c9d332ef304518a3d1f9fe7826a338345105cb/analysis/snakemake.Rmd" target="_blank">c8c9d33</a>
+</td>
+<td>
+Julia Arukakkal
+</td>
+<td>
+2024-07-03
+</td>
+<td>
+wflow_publish(c("analysis/pgchild1.Rmd", "analysis/project2.Rmd",
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/juaruk/Orthoptera/2b76b831aa82625d7b7cbc91b286353865b68b4b/docs/snakemake.html" target="_blank">2b76b83</a>
+</td>
+<td>
+Julia Arukakkal
+</td>
+<td>
+2024-06-25
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
 html
 </td>
 <td>
@@ -783,8 +834,264 @@ wflow_publish("*.Rmd")
 </div>
 </div>
 </div>
-<div id="introduction" class="section level2">
-<h2>Introduction</h2>
+<div id="installation-dependencies" class="section level2">
+<h2>Installation &amp; Dependencies</h2>
+Snakemake was loaded on the cluster using a conda environment as follows
+<pre><code> 
+module load GCC/11.2.0 OpenMPI/4.1.1 snakemake/6.10.0 Biopython/1.79
+</code> </pre>
+<p>Snakemake is dependent on the modules listed to be loaded, such as
+GCC, so do not load Snakemake by itself.</p>
+</div>
+<div id="snakemake-syntax" class="section level2 tabset">
+<h2 class="tabset">Snakemake Syntax</h2>
+<div id="order" class="section level3">
+<h3>Order</h3>
+<p>A Snakemake file is written in python. The general structure consists
+of import statements, common directories, followed by rules.</p>
+</div>
+<div id="rules" class="section level3">
+<h3>Rules</h3>
+Here is the general structure of rules:
+<pre><code>
+rule myRule:
+    input:
+       file1 = ...
+       file2 = ...
+    output:
+       fileout1 = ...
+       fileout2 = ...
+    shell:
+       shell commands to make input the output
+</pre>
+<p></code></p>
+<p>You can specify which rules should be run on a local node versus the
+default of running on the cluster. These rules should either be a target
+rule or something very simple, like downloading data. This should be
+provided before the rules are listed.</p>
+<pre><code>
+localrules: all, getHaps
+</pre>
+<p></code></p>
+<p>There also has to be a rule all, this only has an input, which is all
+of the expected outputs from your snakefile as a whole.</p>
+<p>It is important to note that like python, things that are inside the
+container with a colon are tab delimited.</p>
+</div>
+<div id="wildcards" class="section level3">
+<h3>Wildcards</h3>
+Wildcards in SnakeMake allows for file globbing, so snakemake can find
+the sample that follows a specific file pattern in a directory. Here is
+an example.
+<pre><code>
+rule aggregate:
+    input:
+        expand("{dataset}/a.txt", dataset=DATASETS)
+    output:
+        "aggregated.txt"
+    shell:
+        ..
+</pre>
+<p></code> The command expand is needed because in this case we want the
+input to be a list of all the files that follow the file globbing
+pattern.</p>
+</div>
+<div id="implementation-into-slurm-part-1" class="section level3">
+<h3>Implementation into Slurm Part 1</h3>
+To implement a snakefile into the slurm, you need a cluster.json file.
+Here is a model
+<pre><code>
+{
+    "__default__" :
+    {
+        "cpus-per-task" : 1,
+        "partition" : "medium",
+        "ntasks": 1,
+        "mem" : "40G",
+        "time": "1-00:00:00"
+    },
+    "trim-adapt":
+    {
+        "cpus-per-task" : 3,
+        "partition" : "long",
+        "ntasks": 1,
+        "mem" : "100G",
+        "time": "2-00:00:00"
+    },
+}
+</pre>
+<p></code></p>
+<p>Some important things to note is that there needs to be a default.
+These will be the settings in which every unspecified rule will execute
+under. Notice that the entire script is encapsulated by curly brackets,
+and everything inside is tab delimited.</p>
+</div>
+<div id="implementation-into-the-slurm-part-2" class="section level3">
+<h3>Implementation into the Slurm Part 2</h3>
+Additionally, you will need to create a slurm file. Here is an example
+<pre><code>
+#!/bin/bash
+#SBATCH --job-name=snakemake
+#SBATCH --partition=xlong
+#SBATCH --time="10-00:00:00"
+#SBATCH --mem=20G
+#SBATCH --cpus-per-task=1
+#SBATCH --ntasks=1
+
+module load GCC/11.2.0 OpenMPI/4.1.1 snakemake/6.10.0 Biopython/1.79
+
+snakemake --latency-wait 3600 --restart-times 1 -j 100 -p --max-jobs-per-second 1 --cluster-config cluster.json --cluster "sbatch -p {cluster.partition} --ntasks {cluster.ntasks} --cpus-per-task {cluster.cpus-per-task} -t {cluster.time} --mem {cluster.mem}" --rerun-incomplete --notemp --nolock 
+</pre>
+<p></code></p>
+<p>Make sure to load the module and all its dependencies within the
+slurm file. All of the parameter specified that start with cluster are
+specified within the json file created in part 1.</p>
+</div>
+</div>
+<div id="pipeline" class="section level2 tabset">
+<h2 class="tabset">Pipeline</h2>
+<div id="indexing" class="section level3">
+<h3>Indexing</h3>
+</div>
+<div id="trimming" class="section level3">
+<h3>Trimming</h3>
+<p>Here is my trimming script.</p>
+<pre><code>
+rule trim_adapt:
+    input:
+        read1 = READDir + "/{sample}_R1_merged.fastq.gz",
+        read2 = READDir + "/{sample}_R2_merged.fastq.gz",
+        adaptfile = OUTDir + "/list/TruSeq2_PE.fa"
+    output:
+        goodread1 = OUTDir + "/trimming/{sample}_R1_paired.fastq.gz",
+        badread1 = OUTDir + "/trimming/{sample}_R1_unpaired.fastq.gz",
+        goodread2 = OUTDir + "/trimming/{sample}_R2_paired.fastq.gz",
+        badread2 = OUTDir + "/trimming/{sample}_R2_unpaired.fastq.gz"
+    shell:
+        """
+        module load Trimmomatic/0.39-Java-11
+        java -jar $EBROOTTRIMMOMATIC/trimmomatic-0.39.jar PE -threads 2 -phred33 {input.read1} {input.read2} {output.goodread1} {output.badread1} {output.goodread2} {output.badread2} ILLUMINACLIP:{input.adaptfile}:2:30:10 LEADING:30 TRAILING:30 SLIDINGWINDOW:4:15 MINLEN:36 
+        """
+</pre>
+<p></code></p>
+<p>I used Trimmomatic for my trimming software. I had paired read
+inputs, so I have both the forward and reverse reads as inputs.</p>
+Additionally, a fasta file is needed to specify the adapter sequences
+that Trimmomatic needs to remove. This is the third input. Here is an
+example of a line from the file, with the name preceded by an &gt; and
+the next line being the sequence.
+<pre><code>
+>FlowCellName
+TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC
+
+</pre>
+<p></code></p>
+<p>There are 4 outputs. The good reads are the output that is trimmed.
+The bad reads contain the orphaned reads which were removed from one
+sequence, but not the other.</p>
+<table class="table table-hover">
+<thead>
+<tr>
+<th scope="col">
+Parameters
+</th>
+<th scope="col">
+Meaning
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="table-active">
+<th scope="row">
+-threads
+</th>
+<td>
+Specifies amount of threads used, more allows for parallelization
+</td>
+</tr>
+<tr class="table-active">
+<th scope="row">
+–phred33
+</th>
+<td>
+Using Phred score of 33 to determine quality score cutoff
+</td>
+</tr>
+<tr class="table-active">
+<th scope="row">
+ILLUMINACLIP
+</th>
+<td>
+Performs adapter removal, 4 parameters: adapter.fa : # of mismatches in
+adaptor clip allowed : clip length for palindrome of adaptor in paired
+end sequencing: clip length of adaptor
+</td>
+</tr>
+<tr class="table-active">
+<th scope="row">
+LEADING
+</th>
+<td>
+Removes leading base pairs below given quality score
+</td>
+</tr>
+<tr class="table-active">
+<th scope="row">
+TRAILING
+</th>
+<td>
+Removes trailing base pairs below given quality score
+</td>
+</tr>
+<tr class="table-active">
+<th scope="row">
+SLIDING WINDOW
+</th>
+<td>
+Defines the length of the section of base pairs whose quality scores
+will be averaged and then removed if necessary
+</td>
+</tr>
+<tr class="table-active">
+<th scope="row">
+MINLEN
+</th>
+<td>
+Column content
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="mapping" class="section level3">
+<h3>Mapping</h3>
+</div>
+<div id="variant-calling" class="section level3">
+<h3>Variant Calling</h3>
+</div>
+<div id="filtering" class="section level3">
+<h3>Filtering</h3>
+</div>
+</div>
+<div id="faqs" class="section level2 tabset">
+<h2 class="tabset">FAQs</h2>
+<div id="general" class="section level3">
+<h3>General</h3>
+</div>
+<div id="indexing-1" class="section level3">
+<h3>Indexing</h3>
+</div>
+<div id="trimming-1" class="section level3">
+<h3>Trimming</h3>
+</div>
+<div id="mapping-1" class="section level3">
+<h3>Mapping</h3>
+</div>
+<div id="variant-calling-1" class="section level3">
+<h3>Variant Calling</h3>
+</div>
+<div id="filtering-1" class="section level3">
+<h3>Filtering</h3>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -825,6 +1132,7 @@ loaded via a namespace (and not attached):
 [33] rmarkdown_2.21    callr_3.7.3       magrittr_2.0.3    whisker_0.4.1    
 [37] ps_1.7.5          promises_1.2.0.1  htmltools_0.5.5   httpuv_1.6.9     
 [41] utf8_1.2.3        stringi_1.7.12    cachem_1.0.7     </code></pre>
+</div>
 </div>
 </div>
 
