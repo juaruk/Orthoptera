@@ -7,7 +7,203 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Introduction
+## Installation & Dependencies
+
+Snakemake was loaded on the cluster using a conda environment as follows
+<pre><code> 
+module load GCC/11.2.0 OpenMPI/4.1.1 snakemake/6.10.0 Biopython/1.79
+</code> </pre>
+Snakemake is dependent on the modules listed to be loaded, 
+such as GCC, so do not load Snakemake by itself.
+
+## Snakemake Syntax {.tabset}
+
+### Order
+
+A Snakemake file is written in python. The general structure consists of import statements, common directories, followed by rules.
+
+### Rules
+Here is the general structure of rules:
+<pre><code>
+rule myRule:
+    input:
+       file1 = ...
+       file2 = ...
+    output:
+       fileout1 = ...
+       fileout2 = ...
+    shell:
+       shell commands to make input the output
+</pre></code>
+
+You can specify which rules should be run on a local node versus the default of running on the cluster.
+These rules should either be a target rule or something very simple, like downloading data. This should be provided before the rules are listed. 
+
+<pre><code>
+localrules: all, getHaps
+</pre></code>
+
+There also has to be a rule all, this only has an input, which is all of the expected outputs from your snakefile as a whole.
+
+It is important to note that like python, things that are inside the container with a colon are tab delimited. 
+
+### Wildcards
+Wildcards in SnakeMake allows for file globbing, so snakemake can find the sample that follows a specific file pattern in a directory. Here is an example. 
+<pre><code>
+rule aggregate:
+    input:
+        expand("{dataset}/a.txt", dataset=DATASETS)
+    output:
+        "aggregated.txt"
+    shell:
+        ..
+</pre></code>
+The command expand is needed because in this case we want the input to be a list of all the files that follow the file globbing pattern. 
+
+### Implementation into Slurm Part 1
+To implement a snakefile into the slurm, you need a cluster.json file.
+Here is a model
+<pre><code>
+{
+    "__default__" :
+    {
+        "cpus-per-task" : 1,
+        "partition" : "medium",
+        "ntasks": 1,
+        "mem" : "40G",
+        "time": "1-00:00:00"
+    },
+    "trim-adapt":
+    {
+        "cpus-per-task" : 3,
+        "partition" : "long",
+        "ntasks": 1,
+        "mem" : "100G",
+        "time": "2-00:00:00"
+    },
+}
+</pre></code>
+
+Some important things to note is that there needs to be a default. These will be the settings in which every unspecified rule will execute under. Notice that the entire script is encapsulated by curly brackets, and everything inside is tab delimited. 
+
+### Implementation into the Slurm Part 2
+Additionally, you will need to create a slurm file. Here is an example
+<pre><code>
+#!/bin/bash
+#SBATCH --job-name=snakemake
+#SBATCH --partition=xlong
+#SBATCH --time="10-00:00:00"
+#SBATCH --mem=20G
+#SBATCH --cpus-per-task=1
+#SBATCH --ntasks=1
+
+module load GCC/11.2.0 OpenMPI/4.1.1 snakemake/6.10.0 Biopython/1.79
+
+snakemake --latency-wait 3600 --restart-times 1 -j 100 -p --max-jobs-per-second 1 --cluster-config cluster.json --cluster "sbatch -p {cluster.partition} --ntasks {cluster.ntasks} --cpus-per-task {cluster.cpus-per-task} -t {cluster.time} --mem {cluster.mem}" --rerun-incomplete --notemp --nolock 
+</pre></code>
+
+Make sure to load the module and all its dependencies within the slurm file.
+All of the parameter specified that start with cluster are specified within the json file created in part 1.
+
+
+## Pipeline {.tabset}
+
+### Indexing 
+
+
+### Trimming
+Here is my trimming script. 
+
+<pre><code>
+rule trim_adapt:
+    input:
+        read1 = READDir + "/{sample}_R1_merged.fastq.gz",
+        read2 = READDir + "/{sample}_R2_merged.fastq.gz",
+        adaptfile = OUTDir + "/list/TruSeq2_PE.fa"
+    output:
+        goodread1 = OUTDir + "/trimming/{sample}_R1_paired.fastq.gz",
+        badread1 = OUTDir + "/trimming/{sample}_R1_unpaired.fastq.gz",
+        goodread2 = OUTDir + "/trimming/{sample}_R2_paired.fastq.gz",
+        badread2 = OUTDir + "/trimming/{sample}_R2_unpaired.fastq.gz"
+    shell:
+        """
+        module load Trimmomatic/0.39-Java-11
+        java -jar $EBROOTTRIMMOMATIC/trimmomatic-0.39.jar PE -threads 2 -phred33 {input.read1} {input.read2} {output.goodread1} {output.badread1} {output.goodread2} {output.badread2} ILLUMINACLIP:{input.adaptfile}:2:30:10 LEADING:30 TRAILING:30 SLIDINGWINDOW:4:15 MINLEN:36 
+        """
+</pre></code>
+
+I used Trimmomatic for my trimming software. I had paired read inputs, so I have both the forward and reverse reads as inputs. 
+
+Additionally, a fasta file is needed to specify the adapter sequences that Trimmomatic needs to remove. This is the third input.
+Here is an example of a line from the file, with the name preceded by an > and the next line being the sequence. 
+<pre><code>
+>FlowCellName
+TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC
+
+</pre></code>
+
+There are 4 outputs. The good reads are the output that is trimmed. The bad reads contain the orphaned reads which were removed from one sequence, but not the other. 
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Parameters</th>
+      <th scope="col">Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-active">
+      <th scope="row">-threads</th>
+      <td>Specifies amount of threads used, more allows for parallelization</td>
+    </tr>
+    <tr class="table-active">
+      <th scope="row">--phred33</th>
+      <td>Using Phred score of 33 to determine quality score cutoff</td>
+    </tr>
+    <tr class="table-active">
+      <th scope="row">ILLUMINACLIP</th>
+      <td>Performs adapter removal, 4 parameters: adapter.fa : # of mismatches in adaptor clip allowed : clip length for palindrome of adaptor in paired end sequencing: clip length of adaptor</td>
+    </tr>
+    <tr class="table-active">
+      <th scope="row">LEADING</th>
+      <td>Removes leading base pairs below given quality score</td>
+    </tr>
+    <tr class="table-active">
+      <th scope="row">TRAILING</th>
+      <td>Removes trailing base pairs below given quality score</td>
+    </tr>
+    <tr class="table-active">
+      <th scope="row">SLIDING WINDOW</th>
+      <td>Defines the length of the section of base pairs whose quality scores will be averaged and then removed if necessary </td>
+    </tr>
+    <tr class="table-active">
+      <th scope="row">MINLEN</th>
+      <td>Column content</td>
+    </tr>
+  </tbody>
+</table>
+
+### Mapping
+
+### Variant Calling
+
+### Filtering
+
+## FAQs{.tabset}
+### General
+
+
+
+### Indexing 
+
+
+### Trimming 
+
+### Mapping
+
+### Variant Calling
+
+### Filtering
 
 ```{r}
 

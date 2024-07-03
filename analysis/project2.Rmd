@@ -10,9 +10,9 @@ editor_options:
 The aim of this project is to compare multiple different types of pipelines 
 to figure out which one is the most ideal for population genomics analysis. 
 
-Click here learn more about the pipelines being tested.
+Click here to learn more about the pipelines being tested. <update with link>
 
-Here are the metrics we will be measuring 
+Here are the metrics we will be measuring: 
 
 ```{r}
 
