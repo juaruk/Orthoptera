@@ -1,5 +1,5 @@
 ---
-title: "pgchild2"
+title: "Dataset Information"
 author: "Julia Arukakkal"
 date: "2024-06-21"
 output: workflowr::wflow_html
@@ -7,9 +7,24 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Introduction
+## General
+My reference genome is from a female Mormon Cricket, *Anabrus simplex*, located in Idaho, USA. 
+I have 34 samples that will be mapped to this reference. 
 
-```{r}
 
-```
+## MultiQC Report{.tabset}
+<span class="tab-container">
+  <img src="assets/locusts.png"> 
+  <span class="content">
+    Major Conclusions:  
+1. Samples MC053 and MC071 may be overrepresented in mapping due to their longer read length in comparison to the others  
+2. Samples MC677 may be underrepressented in mapping due to its shorter read length in comparison to others. 
+    <br>
+    <br>
+    <a href="assets/Orthoptera_multiqc_report.html"> Click here for the full report </a>
+    <br>
+  </span>
+</span>
+<br>
+
 

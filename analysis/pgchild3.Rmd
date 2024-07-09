@@ -6,19 +6,192 @@ output: workflowr::wflow_html
 editor_options:
   chunk_output_type: console
 ---
-# About {.tabset}
+## Pipeline {.tabset}
+### Trimming
+Here is my trimming script. 
 
-## Introduction 
+<pre><code>
+rule trim_adapt:
+    input:
+        read1 = READDir + "/{sample}_R1_merged.fastq.gz",
+        read2 = READDir + "/{sample}_R2_merged.fastq.gz",
+        adaptfile = OUTDir + "/list/TruSeq2_PE.fa"
+    output:
+        goodread1 = OUTDir + "/trimming/{sample}_R1_paired.fastq.gz",
+        badread1 = OUTDir + "/trimming/{sample}_R1_unpaired.fastq.gz",
+        goodread2 = OUTDir + "/trimming/{sample}_R2_paired.fastq.gz",
+        badread2 = OUTDir + "/trimming/{sample}_R2_unpaired.fastq.gz"
+    shell:
+        """
+        module load Trimmomatic/0.39-Java-11
+        java -jar $EBROOTTRIMMOMATIC/trimmomatic-0.39.jar PE -threads 2 -phred33 {input.read1} {input.read2} {output.goodread1} {output.badread1} {output.goodread2} {output.badread2} ILLUMINACLIP:{input.adaptfile}:2:30:10 LEADING:30 TRAILING:30 SLIDINGWINDOW:4:15 MINLEN:36 
+        """
+</pre></code>
+
+I used Trimmomatic for my trimming software. I had paired read inputs, so I have both the forward and reverse reads as inputs. 
+
+Additionally, a fasta file is needed to specify the adapter sequences that Trimmomatic needs to remove. This is the third input.
+Here is an example of a line from the file, with the name preceded by an > and the next line being the sequence. 
+<pre><code>
+>FlowCellName
+TTTTTTTTTTAATGATACGGCGACCACCGAGATCTACAC
+
+</pre></code>
+
+There are 4 outputs. The good reads are the output that is trimmed. The bad reads contain the orphaned reads which were removed from one sequence, but not the other. I recommend storing the bad reads in another directory for ease. 
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Parameters</th>
+      <th scope="col">Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-active">
+      <th scope="row">PE</th>
+      <td>Paired End -> using both a forward and reverse read. </td>
+    </tr>
+    <tr class="table-active">
+      <th scope="row">-threads</th>
+      <td>Specifies amount of threads used, more allows for parallelization</td>
+    </tr>
+    <tr class="table-active">
+      <th scope="row">--phred33</th>
+      <td>Using Phred score of 33 to determine quality score cutoff</td>
+    </tr>
+    <tr class="table-active">
+      <th scope="row">ILLUMINACLIP</th>
+      <td>Performs adapter removal, 4 parameters: adapter.fa : # of mismatches in adaptor clip allowed : clip length for palindrome of adaptor in paired end sequencing: clip length of adaptor</td>
+    </tr>
+    <tr class="table-active">
+      <th scope="row">LEADING</th>
+      <td>Removes leading base pairs below given quality score</td>
+    </tr>
+    <tr class="table-active">
+      <th scope="row">TRAILING</th>
+      <td>Removes trailing base pairs below given quality score</td>
+    </tr>
+    <tr class="table-active">
+      <th scope="row">SLIDING WINDOW</th>
+      <td>Defines the length of the section of base pairs whose quality scores will be averaged and then removed if necessary </td>
+    </tr>
+    <tr class="table-active">
+      <th scope="row">MINLEN</th>
+      <td>Column content</td>
+    </tr>
+  </tbody>
+</table>
+
+I use FASTQC to check the quality of my trimming report. Here is my rule for fastqc. 
+<pre><code>
+
+rule trim_fastqc:
+    input:
+        read1 = OUTDir + "/trimming/{sample}_R1_paired.fastq.gz",
+        read2 = OUTDir + "/trimming/{sample}_R2_paired.fastq.gz",
+    output:
+        htmlqc1 = OUTDir + "/trimming/report/{sample}_R1_paired_fastqc.html",
+        htmlqc2 = OUTDir + "/trimming/report/{sample}_R2_paired_fastqc.html",
+        zip = OUTDir + "/trimming/report/{sample}_fastqc.zip"
+    shell:
+        """
+        module load FastQC/0.11.9-Java-11
+        fastqc {input.read1}
+        fastqc {input.read2}
+        """
+</pre></code>
+
+It is important to note that trim_fastqc has 3 outputs, 2 html files for both reads, and a zipped file. 
+
+Additionally, to aggregate the fastqc quality reports, multiqc was used. 
+First, make a directory of all the zipped files generated from the previous rule. 
+Here are the commands I used 
+<pre><code>
+ module load GCC/8.2.0-2.31.1  OpenMPI/3.1.3  MultiQC/1.9-Python-3.7.2
+ multiqc .
+</pre></code>
+  
+One of the outputs is the MultiQC html file, which you can view to see the report. 
+My report can be viewed under "Comparative Genomics/Dataset Information". 
+
+### Mapping & Indexing
+
+The mapping platforms that I will be using are Bowtie2 and BWA-MEM2. 
+
+
+
+### Variant Calling
+
+### Filtering
+
+## Error Log {.tabset}
+### Trimming
+<div class="panel panel-primary">
+  <div class="panel-heading"> 
+  {rule:trim-adapt} : Samples not in GZIP format
+  </div>
+    
+  <div class="panel-body">
+  <p>
+  <a class="btn btn-success" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    java.lang.RuntimeException: java.util.zip.ZipException: Not in GZIP format
+  </a>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+  <pre> <code>
+    Exception in thread "Thread-1" java.lang.RuntimeException: java.util.zip.ZipException: Not in GZIP format
+	at org.usadellab.trimmomatic.threading.ParserWorker.run(ParserWorker.java:56)
+	at java.base/java.lang.Thread.run(Thread.java:834)  
+Caused by: java.util.zip.ZipException: Not in GZIP format  
+	at java.base/java.util.zip.GZIPInputStream.readHeader(GZIPInputStream.java:166)  
+	at java.base/java.util.zip.GZIPInputStream.<init>(GZIPInputStream.java:80)
+	at java.base/java.util.zip.GZIPInputStream.<init>(GZIPInputStream.java:92)
+	at org.usadellab.trimmomatic.util.ConcatGZIPInputStream$GZIPHelperInputStream.<init>(ConcatGZIPInputStream.java:100)
+	at org.usadellab.trimmomatic.util.ConcatGZIPInputStream$GZIPHelperInputStream.<init>(ConcatGZIPInputStream.java:96)
+	at org.usadellab.trimmomatic.util.ConcatGZIPInputStream.nextGzipInputStream(ConcatGZIPInputStream.java:38)
+	at org.usadellab.trimmomatic.util.ConcatGZIPInputStream.read(ConcatGZIPInputStream.java:75)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:185)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:326)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:392)
+	at org.usadellab.trimmomatic.fastq.FastqParser.parseOne(FastqParser.java:59)
+	at org.usadellab.trimmomatic.fastq.FastqParser.next(FastqParser.java:179)
+	at org.usadellab.trimmomatic.threading.ParserWorker.run(ParserWorker.java:42)
+	... 1 more
+  </pre></code>
+  </div>
+  </div>
+  <pre>
+  For me, this error only existed with 4 of my samples. 
+  The possibilities include an issue with a compression, or issues with indexing due to using a merged fasta file. 
+  </pre>
+</div>
+</div>
+
+
+## Technologies {.tabset}
+
+### SnakeMake 
 <span class="tab-container">
   <img src="assets/locusts.png"> 
   <span class="content">
     Through the usage of rules & wildcards, Snakemake offers an adaptible population genomics pipeline. 
     <br>
     <br>
-    <a href="snakemake.html"> Click here for information regarding syntax and my workflow. </a>
+    <a href="snakemake.html"> Click here for information regarding syntax and general implementation.</a>
     <br>
   </span>
 </span>
+  
+```{r}
+
+```
+
 
   
 
